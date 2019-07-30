@@ -108,7 +108,6 @@ Thanks to Font Awesome for access to the free, amazing, and easy-to-use webfonts
   function getIP(json) {
     var ip = json.ip;
     dataLayer.push({"event":"ipEvent","ipAddress" : json.ip});
-    document.cookie = "IP="+ip;
   }
 </script>
 <script type="application/javascript" src="https://api.ipify.org/?format=jsonp&callback=getIP"></script>
