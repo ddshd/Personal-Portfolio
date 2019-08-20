@@ -1,5 +1,5 @@
 <noscript>
-<style>body {opacity: 1 !important;overflow: hidden !important;}</style>
+<style>body {opacity: 1 !important;overflow: hidden !important;}.body-container {overflow: hidden !important;}</style>
 <div style="z-index:1;background-color:#ce2522;width:100%;height:100%;position:absolute;opacity:.7;">
 </div>
 <div style="z-index:2;width:100%;position:absolute;background-color:#ce2522;padding:20px;top:0;z-index:9999;">
