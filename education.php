@@ -1,9 +1,10 @@
 <html>
 <head>
   <?php  $title = "Education"; ?>
-  <?php function descriptionTag() { echo "Here is a little about my past educational experience."; }  ?>
   <?php include 'extras/meta.php';?>
+  <?php function descriptionTag() { echo "Here is a little about my past educational experience."; }  ?>
   <?php $scheme = ['#a6cfe2', '#0b0c10']; ?>
+  <?php include 'extras/noscript.php';?>
 <style>
 
   body, html {

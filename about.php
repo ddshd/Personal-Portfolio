@@ -8,9 +8,10 @@
 <html>
 <head>
   <?php $title = "About"; ?>
-  <?php $ExtraFooter = "Adobe Creative Suite and AutoDESK suite logos are owned by their respectible owners."; ?>
   <?php include 'extras/meta.php';?>
+  <?php $ExtraFooter = "Adobe Creative Suite and AutoDESK suite logos are owned by their respectible owners."; ?>
   <?php function descriptionTag() { echo "Here is a little about me."; }  ?>
+  <?php include 'extras/noscript.php';?>
 <style>
 
 

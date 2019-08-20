@@ -1,11 +1,11 @@
 <html>
 <head>
   <?php  $title = "Projects"; ?>
-  <?php function descriptionTag() { echo "Here are some of the projects I've worked on to build up my experience."; }  ?>
   <?php include 'extras/meta.php';?>
+  <?php function descriptionTag() { echo "Here are some of the projects I've worked on to build up my experience."; }  ?>
   <?php $scheme0 = ['#0d38b1', '#fff']; ?>
   <?php $scheme = ['#3b465c', '#e9e8d4']; ?>
-
+  <?php include 'extras/noscript.php';?>
 <style>
   html {
     background-color: <?php echo $scheme[0]; ?>;
