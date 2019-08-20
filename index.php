@@ -26,7 +26,6 @@
       }
   ?>
 
-
       background-color: <?php echo $scheme[0]; ?>;
     }
 
