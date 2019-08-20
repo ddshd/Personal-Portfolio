@@ -2,12 +2,11 @@
 <head>
   <?php $title = "Hi!"; ?>
   <?php function descriptionTag() { echo "Hi! I'm Dhrumil Shah!"; } ?>
+  <?php
+        $scheme0 = ['#e88565', '#181a27'];
+        $scheme = ['#0f0a04', '#faac01'];
+  ?>
   <?php include 'extras/meta.php';?>
-
-<?php
-      $scheme0 = ['#e88565', '#181a27'];
-      $scheme = ['#0f0a04', '#faac01'];
-?>
 
 <style>
 
