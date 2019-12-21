@@ -99,6 +99,10 @@
   <div>
     <center>
       <h1 style="margin:0;padding:0;transform: translateZ(22px);">My Skills:</h1>
+      <br>
+
+      <span>Java</span>
+      <br>
 
       <h3 style="transform: translateZ(22px);">Web:</h3>
       <span><i class="fab fa-css3"></i> CSS</span>
