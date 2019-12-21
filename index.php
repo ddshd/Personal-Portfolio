@@ -233,7 +233,7 @@
   if (file_exists("resume.pdf")) {
     echo '<ul id="BodyLinks"><center><li style="font-size: x-large;"><a href="';
     localDevEnvironment();
-    echo '/resume.pdf#toolbar=0&navpanes=0">Resume</a></li></center></ul>';
+    echo '/resume">Resume</a></li></center></ul>';
   }
 ?>
 
