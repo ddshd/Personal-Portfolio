@@ -146,9 +146,9 @@
   <h1>Education</h1>
 
   <h4 id="summary-text">
-I started my high school career at William Byrd High School and I’ve worked very hard to build and maintain my current academic ranking. Over the four years in high school, I’ve completed numerous courses relevant to my future career goals. I’ve learned from these courses and created the path to become an engineer. I’ve learned and worked on the three major AutoDESK products, CAD, Revit and Inventor. Over the past four years, I’ve taught myself the ability to create and maintain amazing websites. I made my first website in 2013 and with help from the teachers and the community, I’ve greatly improved my knowledge and ability to code in HTML, PHP, Javascript, and CSS.<br><br>
+      I started my high school career at William Byrd High School and worked very hard to maintain a good academic ranking. Throughout the four years, I completed numerous courses relevant to my career goal of becoming an engineer. I learned and worked on the three major AutoDESK products, CAD, Revit, and Inventor. Additionally, I taught myself to create and maintain websites. I made my first website in 2013. Since then, with help from the community, I’ve greatly improved my knowledge and ability to code in HTML, PHP, Javascript, and CSS.<br><br>
 
-After high school, I have continued my education in the engineering field, especially Computer Science, to learn the ability to create a piece of software that has the possibility to change someone’s life for the good in the future.
+      After high school, I have continued my education in Computer Science at the Virginia Polytechnic Institute and State University. I hope to one day create a piece of software that has the ability to change someone’s life for the better.
 </h4>
 
   <br><br>
