@@ -194,7 +194,9 @@
         <h2><i class="fas fa-map-pin"></i> Vinton, VA</h2>
         <br>
         <span><i class="fas fa-calendar-week"></i> 2014 - 2018</span>
+    <!--
         <h2><i class="fas fa-graduation-cap"></i> GPA: 3.27</h2>
+    -->
         <br><br>
         <div class="innerBoxes">
           <h4>Certification:</h4>
