@@ -88,7 +88,7 @@
     <h1>About Me:</h1>
 
   <p style="text-align:left;">
-    I’m a computer science student at Virginia Tech learning to expand my skills developing and designing software. At the age of 13, I built my first website and from then on I've been working hard to imporve my skills. I am looking forward to working with my peers on projects expanding across multiple languages and changing somebody’s life for the better. I’ve worked in my community for my past four years and I’m looking forward to continue to work for the community and help the people in need with my talent. I emigrated from my home country, India in November of 2009 to the small town of Roanoke, VA and after experiencing the hardships people in developing countries experience first-hand, I’m willing to dedicate my future life to changing others and watching the smile on others faces. I’m hoping to leave this world changed then how I entered it.
+    I’m a computer science student at Virginia Tech learning to expand my skills developing and designing software. At the age of 13, I built my first website and from then on I've been working hard to improve my skills. I am looking forward to working with my peers on projects expanding across multiple languages and changing someone's life for the better. I’ve worked in my community the past four years and I’m looking forward to continue working for the community and help people in need with my talent. I emigrated from my home country, India in November of 2009 to the small town of Roanoke, VA. After witnessing the hardships of people in developing countries experience, I’m dedicating my life to making people smile. I hope to leave this world better than how I found it.
   </p>
 </div>
 
