@@ -148,7 +148,7 @@ document.addEventListener("touchstart", function() {}, true);
     cursor: pointer !important;
   }
 
-   a,  a:active,  a:hover,  a:focus,  a:visited{
+  a,  a:active,  a:hover,  a:focus,  a:visited{
     text-decoration: none !important;
   }
 

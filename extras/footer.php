@@ -14,6 +14,10 @@
       text-decoration: none;
     }
 
+    footer a {
+      color: <?php echo $scheme[1]; ?> !important;
+    }
+
     html, body {
      height: 100%;
      position: relative;
@@ -85,5 +89,5 @@
     <i class="fab fa-github"></i>
   </a>
   <div style="opacity:0;height: 5px;padding: 0;margin: 0 !important;"></div>
-  <p style="margin:0;padding:0;opacity: .4;font-size: x-small;">© <?php echo date("Y"); ?> Dhrumil Shah. All Rights Rervered. <br><b><?php echo $ExtraFooter; ?></b></p>
+  <p style="margin:0;padding:0;opacity: .4;font-size: x-small;">© <?php echo date("Y"); ?> Dhrumil Shah. All Rights Rervered. <a href="<?php localDevEnvironment(); ?>/injustice"> No Justice, No Peace.</a><br><b><?php echo $ExtraFooter; ?></b></p>
 <center></footer>
