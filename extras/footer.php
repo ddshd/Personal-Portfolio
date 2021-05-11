@@ -35,7 +35,7 @@
      position: absolute;
      bottom: 0;
      width: 100%;
-//     bottom: 20px;
+/*     bottom: 20px;  */
      padding: 20px 0px;
      text-align: center;
      font-size: 125%;

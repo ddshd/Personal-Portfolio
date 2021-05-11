@@ -1,20 +1,25 @@
 <html>
+
 <head>
   <?php $title = "Hi!"; ?>
-  <?php include 'extras/meta.php';?>
-  <?php function descriptionTag() { echo "Hi! I'm Dhrumil Shah!"; } ?>
+  <?php include 'extras/meta.php'; ?>
+  <?php function descriptionTag()
+  {
+    echo "Hi! I'm Dhrumil Shah!";
+  } ?>
   <?php
-        $scheme0 = ['#e88565', '#181a27'];
-        $scheme = ['#0f0a04', '#faac01'];
+  $scheme0 = ['#e88565', '#181a27'];
+  $scheme = ['#0f0a04', '#faac01'];
   ?>
-  <?php include 'extras/noscript.php';?>
-<style>
+  <?php include 'extras/noscript.php'; ?>
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.18/dist/mailgo.min.js"></script>
+  <style>
+    html,
+    .body-container {
 
-    html, .body-container {
-
-  <?php
-    if($scheme[0] == '#0f0a04') {
-      echo '
+      <?php
+      if ($scheme[0] == '#0f0a04') {
+        echo '
         background: rgb(15,10,4);
         background: -moz-linear-gradient(0deg, rgba(15,10,4,1) 0%, rgba(43,31,15,1) 100%);
         background: -webkit-linear-gradient(0deg, rgba(15,10,4,1) 0%, rgba(43,31,15,1) 100%);
@@ -23,9 +28,7 @@
       } else {
         echo '/* CHECK THE [0] COLOR FOR THE SCHEME ARRAY. IT IS FALSE SO THE GRADIENT IS NOT SHOWN. */';
       }
-  ?>
-
-      background-color: <?php echo $scheme[0]; ?>;
+      ?>background-color: <?php echo $scheme[0]; ?>;
     }
 
     body {
@@ -48,9 +51,11 @@
         margin-left: 5vw;
         margin-top: 5vh;
       }
+
       #EntranceText {
         font-size: 8vh;
       }
+
       .EntranceContinueEmail-active {
         transform: scale(.8) !important;
         transform-origin: top left;
@@ -82,7 +87,7 @@
       font-size: 3vh;
       padding: 15px;
       text-align: left;
-      box-shadow: 4px 4px 15px 1px <?php echo $scheme[1]."33"; ?>;
+      box-shadow: 4px 4px 15px 1px <?php echo $scheme[1] . "33"; ?>;
       top: 0;
       z-index: 1;
       position: absolute;
@@ -120,12 +125,17 @@
       transform: scale(1)
     }
 
-    #BodyLinks a, #BodyLinks a:active, #BodyLinks a:hover, #BodyLinks a:focus, #BodyLinks a:visited, #BodyLinks li a{
+    #BodyLinks a,
+    #BodyLinks a:active,
+    #BodyLinks a:hover,
+    #BodyLinks a:focus,
+    #BodyLinks a:visited,
+    #BodyLinks li a {
       color: <?php echo $scheme[1]; ?>;
     }
 
     #BodyLinks li a::after {
-    background: #fff;
+      background: #fff;
     }
 
     #homeLink {
@@ -135,8 +145,10 @@
     .closeButton {
       transition: .5s;
       cursor: pointer;
-      -webkit-animation-name: rotateBack; /* Safari 4.0 - 8.0 */
-      -webkit-animation-duration: .5s; /* Safari 4.0 - 8.0 */
+      -webkit-animation-name: rotateBack;
+      /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: .5s;
+      /* Safari 4.0 - 8.0 */
       animation-name: rotateBack;
       animation-duration: .5s;
       color: <?php echo $scheme[0]; ?> !important;
@@ -150,8 +162,10 @@
     }
 
     .closeButton:hover {
-      -webkit-animation-name: rotate; /* Safari 4.0 - 8.0 */
-      -webkit-animation-duration: .5s; /* Safari 4.0 - 8.0 */
+      -webkit-animation-name: rotate;
+      /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: .5s;
+      /* Safari 4.0 - 8.0 */
       animation-name: rotate;
       animation-duration: .5s;
 
@@ -161,44 +175,64 @@
     }
 
     @keyframes rotate {
-      from {transform: scale(.5) rotate(0deg);}
-      to {transform: scale(.5) rotate(90deg);}
+      from {
+        transform: scale(.5) rotate(0deg);
+      }
+
+      to {
+        transform: scale(.5) rotate(90deg);
+      }
     }
 
     @keyframes rotateBack {
-      from {transform: scale(.5) rotate(90deg);}
-      to {transform: scale(.5) rotate(0deg);}
+      from {
+        transform: scale(.5) rotate(90deg);
+      }
+
+      to {
+        transform: scale(.5) rotate(0deg);
+      }
     }
 
     @-webkit-keyframes rotate {
-      from {transform: scale(.5) rotate(0deg);}
-      to {transform: scale(.5) rotate(90deg);}
+      from {
+        transform: scale(.5) rotate(0deg);
+      }
+
+      to {
+        transform: scale(.5) rotate(90deg);
+      }
     }
 
     @-webkit-keyframes rotateBack {
-      from {transform: scale(.5) rotate(90deg);}
-      to {transform: scale(.5) rotate(0deg);}
-    }
+      from {
+        transform: scale(.5) rotate(90deg);
+      }
 
+      to {
+        transform: scale(.5) rotate(0deg);
+      }
+    }
   </style>
 </head>
 
 <body>
-<div class="body-container">
+  <div class="body-container">
 
-<div id="Entrance">
-    <h1 id="EntranceText">Hi,<br>I'm Dhrumil Shah!</h1>
-    <div style="position:relative;">
-      <button class="GetInTouchButton">Get in touch!</button>
-      <div class="EntranceContinueEmail-unactive EntranceContinueEmail">
+    <div id="Entrance">
+      <h1 id="EntranceText">Hi,<br>I'm Dhrumil Shah!</h1>
+      <div style="position:relative;">
+        <button class="GetInTouchButton">Get in touch!</button>
+        <div class="EntranceContinueEmail-unactive EntranceContinueEmail">
 
-        <div style="position: absolute;float: right;right: -8;bottom: -8;">
-          <i class="fas closeButton fa-times"></i>
-        </div>
+          <div style="position: absolute;float: right;right: -8;bottom: -8;">
+            <i class="fas closeButton fa-times"></i>
+          </div>
 
-        <h5 style="margin: 0;">This will open your email software.</h5><br>
+          <h5 style="margin: 0;">This will open your email software.</h5><br>
+          <!--
         <script type="text/javascript" language="javascript">
-        <!--
+
         { coded = "Wx9juWj@MuhOq0fhMJFquq.Wxh"
           key = "8KNPMJLtFSOez5kYf3QH10c4qoaGXwnygjm6UAbZilEpsBdDWvVxu7T29rRChI"
           shift=coded.length
@@ -215,42 +249,52 @@
           }
         document.write("<a href='mailto:"+link+"'><button id='mailtoContactLink'>Continue</button></a>")
         }
-        //-->
         </script>
-
+        -->
+          <style>
+            .m-by {
+              display: none !important;
+            }
+          </style>
+          <a href="#mailgo" class="email_popup dark" data-address="contact" data-domain="iamdhrumilshah.com"><button id='mailtoContactLink'>Continue</button></a>
+        </div>
       </div>
     </div>
-</div>
 
-<center>
-<h1 id="LearnAboutMeButton">Learn more about me:</h1>
-</center>
-<?php include 'extras/header.php';?>
+    <center>
+      <h1 id="LearnAboutMeButton">Learn more about me:</h1>
+    </center>
+    <?php include 'extras/header.php'; ?>
 
-<br>
+    <br>
 
-<?php
-  if (file_exists("resume.pdf")) {
-    echo '<ul id="BodyLinks"><center><li style="font-size: x-large;"><a href="';
-    localDevEnvironment();
-    echo '/resume">Resume</a></li></center></ul>';
-  }
-?>
+    <?php
+    if (file_exists("resume.pdf")) {
+      echo '<ul id="BodyLinks"><center><li style="font-size: x-large;"><a href="';
+      localDevEnvironment();
+      echo '/resume">Resume</a></li></center></ul>';
+    }
+    ?>
 
-<br><br><br>
-<?php include 'extras/footer.php'; ?>
+    <br><br><br>
+    <?php include 'extras/footer.php'; ?>
 
-</div>
+  </div>
 </body>
 <script>
   $(".GetInTouchButton").click(function() {
-      $('.EntranceContinueEmail').addClass('EntranceContinueEmail-active');
-      $('.GetInTouchButton').animate({ opacity: 0 });
+    $('.EntranceContinueEmail').addClass('EntranceContinueEmail-active');
+    $('.GetInTouchButton').animate({
+      opacity: 0
+    });
   });
 
   $(".closeButton").click(function() {
-      $('.EntranceContinueEmail').removeClass('EntranceContinueEmail-active');
-      $('.GetInTouchButton').animate({ opacity: 1 });
+    $('.EntranceContinueEmail').removeClass('EntranceContinueEmail-active');
+    $('.GetInTouchButton').animate({
+      opacity: 1
+    });
   });
 </script>
+
 </html>

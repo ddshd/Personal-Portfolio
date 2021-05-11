@@ -146,10 +146,10 @@
   <h1>Education</h1>
 
   <h4 id="summary-text">
-      I started my high school career at William Byrd High School and worked very hard to maintain a good academic ranking. Throughout the four years, I completed numerous courses relevant to my career goal of becoming an engineer. I learned and worked on the three major AutoDESK products, CAD, Revit, and Inventor. Additionally, I taught myself to create and maintain websites. I made my first website in 2013. Since then, with help from the community, I’ve greatly improved my knowledge and ability to code in HTML, PHP, Javascript, and CSS.<br><br>
-
-      After high school, I have continued my education in Computer Science at the Virginia Polytechnic Institute and State University. I hope to one day create a piece of software that has the ability to change someone’s life for the better.
-</h4>
+  I started my journey by perfecting the major AutoDesk products (CAD, Revit, and Inventor) in high school. After which, I completed one year at Virginia Western Community College before transferring to Virginia Tech. There, I furthered my education in advanced data structures and algorithms in languages, such as Java, C, Swift, and Python. I also continued to improve my skills in these self taught languages; HTML/CSS, Javascript, PHP and MySQL databases.
+  <br><br>
+  Currently, I am pursuing my education in computer science at the Virginia Polytechnic Institute and State University. I will be graduating in the Spring 2020 with a Bachelors of Computer Science. One day, I would like to create a piece of software that will change someone’s life for the better.
+  </h4>
 
   <br><br>
 
