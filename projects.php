@@ -204,7 +204,7 @@
         <br>
         <h2>Business Revenue Reporting</h2>
         <br>
-        <h5>An MySQL powered fully featured business reporting software. Written in PHP and Javascript with Bootstrap. The entire system was build from ground up for the needs of the business and has been in prodction for 7 months.</h5>
+        <h5>An MySQL powered fully featured business reporting software. Written in PHP and Javascript with Bootstrap. The entire system was build from ground up for the needs of the business and has been in prodction since late 2016.</h5>
         <br>
         <h5>This project is an internal tool used by the business, there is no public access.</h5>
         <br>

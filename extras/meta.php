@@ -53,7 +53,8 @@ Thanks to Font Awesome for access to the free, amazing, and easy-to-use webfonts
 <title><?php echo $fullTitle; ?></title>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js'></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,100i,300i,400i,500i,700i,900i&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/bf829c4fd5.js" crossorigin="anonymous"></script>
 
 

@@ -78,7 +78,7 @@
 
 <br><br>
 <br><br>
-<footer><center>
+<footer id="footer"><center>
   <a href="//www.linkedin.com/in/dhrumil2504/" target="_blank">
     <i class="fab fa-linkedin"></i>
   </a>
@@ -89,5 +89,5 @@
     <i class="fab fa-github"></i>
   </a>
   <div style="opacity:0;height: 5px;padding: 0;margin: 0 !important;"></div>
-  <p style="margin:0;padding:0;opacity: .4;font-size: x-small;">© <?php echo date("Y"); ?> Dhrumil Shah. All Rights Rervered. <a href="<?php localDevEnvironment(); ?>/injustice"> No Justice, No Peace.</a><br><b><?php echo $ExtraFooter; ?></b></p>
+  <p style="margin:0;padding:0;opacity: .4;font-size: x-small;">© <?php echo date("Y"); ?> Dhrumil Shah. All Rights Rervered. <!-- <a href="<?php localDevEnvironment(); ?>/injustice"> No Justice, No Peace.</a> 3 Guilty Verdicts and, many legislations in progress.--><a href="<?php localDevEnvironment(); ?>/privacy"> Privacy/GDPR Policy.</a><br><b><?php echo $ExtraFooter; ?></b></p>
 <center></footer>

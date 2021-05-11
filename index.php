@@ -63,7 +63,7 @@
     }
 
     #Entrance button {
-      border-radius: 10px;
+      border-radius: 20px;
       border: 2px solid <?php echo $scheme[1]; ?>;
       color: <?php echo $scheme[1]; ?>;
       background-color: transparent;
@@ -101,7 +101,7 @@
     }
 
     .EntranceContinueEmail button {
-      border-radius: 10px !important;
+      border-radius: 20px !important;
       border: 2px solid <?php echo $scheme[0]; ?> !important;
       color: <?php echo $scheme[0]; ?> !important;
       background-color: <?php echo $scheme[1]; ?> !important;

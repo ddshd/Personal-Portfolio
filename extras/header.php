@@ -97,43 +97,22 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
 <script>
   // auto hide menu links when it links to the same page
 
-  hideLinks2(0);
+  hideLinks2();
 
-  function hideLinks(i) {
-    var RemoveQ = window.location.href.split("?")[0];
-    var Url = RemoveQ.split('/');
+  function hideLinks2() {
+	if (document.getElementById("Entrance") != null) {
+	return;
+}
 
-    var lastSegmentofUrl = Url.pop() || Url.pop(); // handle potential trailing slash
-    var x = document.getElementsByTagName("a");
-    var y = x[i].getAttribute("href");
+    var RemoveQ = document.getElementById("BodyLinks").getElementsByTagName('a');
 
-    if (y.includes(lastSegmentofUrl) == false) {
-      hideLinks2(i);
-    } else {
-      document.getElementsByTagName("a")[i].style.display = "none";;
-    };
-
-    if (y.includes(lastSegmentofUrl) == true) {
-      $('body').animate({
-        opacity: 1
-      });
-    }
-  };
-
-  function hideLinks2(b) {
-    var RemoveQ = window.location.href.split("?")[0];
-    var Url = RemoveQ.split('/');
-
-    var lastSegmentofUrl = Url.pop() || Url.pop(); // handle potential trailing slash
-    if (b == null) {
-      b = 0;
-    } else {
-      b = b;
-    };
-    do {
-      i = b + 1;
-      hideLinks(i)
-    } while (Url.includes(lastSegmentofUrl) == true);
+	for (var i = 0; i < RemoveQ.length; i++) {
+    var Url = RemoveQ[i].href.split('/');
+var cUrl = window.location.href.split('/');
+	if (Url[Url.length - 1].includes(cUrl[cUrl.length-1])) {
+	RemoveQ[i].style.display="none";
+}
+}
   };
 
   // END auto hide menu links when it links to the same page
@@ -142,4 +121,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
       $('body').fadeOut(150).delay(500).fadeIn(1000);
     }
   });
+      $('body').animate({
+        opacity: 1
+      });
 </script>
