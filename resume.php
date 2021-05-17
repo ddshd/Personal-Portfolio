@@ -1,23 +1,30 @@
 <?php
-  if (!file_exists("resume.pdf")) {
-      header("HTTP/1.0 404 Not Found");
-      header("Location: 404");
-      exit();
-  }
+if (!file_exists("resume.pdf")) {
+  header("HTTP/1.0 404 Not Found");
+  header("Location: 404");
+  exit();
+}
+$finalFile = "resume.pdf";
+$tempFileName = str_replace(explode("/", $_SERVER["PHP_SELF"])[sizeof(explode("/", $_SERVER["PHP_SELF"])) - 1], "", $_SERVER["PHP_SELF"])
+  . $finalFile;
 ?>
 
 <html>
-<head>
-  <?php  $title = "Resume"; ?>
-  <?php include 'extras/meta.php';?>
 
-  <?php function descriptionTag() { echo "My Resume."; }  ?>
+<head>
+  <?php $title = "Resume"; ?>
+  <?php include 'extras/meta.php'; ?>
+
+  <?php function descriptionTag()
+  {
+    echo "My Resume.";
+  }  ?>
   <?php
-        $scheme0 = ['#e88565', '#181a27'];
-        $scheme = ['#0f0a04', '#faac01'];
+  $scheme0 = ['#e88565', '#181a27'];
+  $scheme = ['#0f0a04', '#faac01'];
   ?>
-  <?php include 'extras/noscript.php';?>
-<style>
+  <?php include 'extras/noscript.php'; ?>
+  <style>
     html {
       background-color: <?php echo $scheme[0]; ?>;
       margin: 0;
@@ -25,7 +32,10 @@
       padding: 0px 30px;
     }
 
-    a, a:hover, a:visited, a:active {
+    a,
+    a:hover,
+    a:visited,
+    a:active {
       color: <?php echo $scheme[1]; ?> !important;
       cursor: pointer !important;
     }
@@ -35,52 +45,94 @@
     }
 
     #ObjectHidden {
-        display: none;
+      display: none;
     }
 
     @media screen and (max-width: 750px) {
       object {
-          display: none;
+        display: none;
       }
 
       #ObjectHidden {
-          display: block;
+        display: block;
       }
     }
-</style>
+
+    canvas {
+      pointer-events: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      max-width: 1000px;
+      width: 70vw;
+      border: 5px solid #fbab01;
+      direction: ltr;
+      border-radius: 5px;
+    }
+  </style>
 
 </head>
+
+<div id="header">
+  <?php include 'extras/header.php'; ?>
+</div>
+
 <body>
 
-<div class="body-container">
+  <div class="body-container">
+    <center>
+      <ul id="BodyLinks">
 
-<center>
+        <div id="download">
+          <li> <a href="<?php localDevEnvironment();
+                        echo '/resume.pdf#view=FitV&pagemode=none&toolbar=0&statusbar=1&messages=0&navpanes=0'; ?>">
+              <i class="fas fa-cloud-download-alt"></i> Download
+            </a>
+          </li>
 
-<span>
-    <a href="javascript:history.back()"><h2><i class="fas fa-long-arrow-alt-left"></i> Back</h2></a>
-    <a href="<?php localDevEnvironment(); echo '/resume.pdf#view=FitV&pagemode=none&toolbar=0&statusbar=1&messages=0&navpanes=0';?>"><h2><i class="fas fa-cloud-download-alt"></i> Download</h2></a>
-</span>
+      </ul>
 
-    <p>Use the contact button on the homepage to get access to the full resume with my contact information.</p>
+      <canvas class="shadow-lg p-3 mb-5 bg-white rounded" id="the-canvas"></canvas>
+  </div>
+  </center>
 
-    <object
-        data='<?php localDevEnvironment(); echo '/resume.pdf#view=FitV&pagemode=none&toolbar=0&statusbar=1&messages=0&navpanes=0';?>'
-        type='application/pdf'
-        width='100%'
-        height='100%'>
-            <p>This browser does not support inline PDFs. Please download the PDF to view it.</p>
-    </object>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+  <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+  <script id="script">
+    try {
+      var url = '<?php echo $tempFileName ?>';
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.worker.min.js';
+      var loadingTask = pdfjsLib.getDocument(url);
+      loadingTask.promise.then(function(pdf) {
+        pdf.getPage(1).then(function(page) {
+          var scale = 1.5;
+          var viewport = page.getViewport({
+            scale: scale,
+          });
+          var canvas = document.getElementById('the-canvas');
+          var context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          var renderContext = {
+            canvasContext: context,
+            viewport: viewport,
+          };
+          page.render(renderContext);
+        });
+      });
+    } catch (err) {
+      var html = "This device doesn't correctly support displaying a PDF.";
+      document.getElementById("download").innerHTML = html;
+    }
+  </script>
 
-    <p id="ObjectHidden">This browser does not support inline PDFs. Please download the PDF to view it.</p>
-
-</center>
-
-<br>
-<br>
-
-<?php include 'extras/footer.php'; ?>
-
-<br>
-</div>
+  <br>
+  <br>
+  </div>
 </body>
+
 </html>
