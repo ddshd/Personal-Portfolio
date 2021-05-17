@@ -4,9 +4,17 @@ if (!file_exists("resume.pdf")) {
   header("Location: 404");
   exit();
 }
-$finalFile = "resume.pdf";
+$filename = "resume.pdf";
 $tempFileName = str_replace(explode("/", $_SERVER["PHP_SELF"])[sizeof(explode("/", $_SERVER["PHP_SELF"])) - 1], "", $_SERVER["PHP_SELF"])
-  . $finalFile;
+  . $filename;
+
+if (isset($_GET["download"])) {
+  header("Content-type: application/pdf");
+  header("Content-type: application/pdf");
+  header('Content-Disposition: attachment; filename="Dhrumil-Shah-Resume.pdf"');
+  header("Content-Length: " . filesize($filename));
+  readfile($filename);
+}
 ?>
 
 <html>
@@ -87,8 +95,8 @@ $tempFileName = str_replace(explode("/", $_SERVER["PHP_SELF"])[sizeof(explode("/
       <ul id="BodyLinks">
 
         <div id="download">
-          <li> <a href="<?php localDevEnvironment();
-                        echo '/resume.pdf#view=FitV&pagemode=none&toolbar=0&statusbar=1&messages=0&navpanes=0'; ?>">
+          <li> <a href="<?php
+                        echo '?download=nsa_allowed'; ?>">
               <i class="fas fa-cloud-download-alt"></i> Download
             </a>
           </li>
