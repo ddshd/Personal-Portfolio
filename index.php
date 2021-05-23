@@ -10,7 +10,7 @@
   } ?>
   <?php
   $scheme0 = ['#eed973', '#28292b'];
-  $scheme = ['#0f0a04', '#faac01'];
+  $scheme = ['#181a27', '#e68440'];
   ?>
   <?php include 'extras/noscript.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.18/dist/mailgo.min.js"></script>
@@ -19,8 +19,8 @@
       color-scheme: light dark;
       --color-one: <?php echo $scheme[0] ?>;
       --color-two: <?php echo $scheme[1] ?>;
-      --color-three: rgba(15,10,4,1);
-      --color-four: rgba(43,31,15,1);
+      --color-three: <?php echo $scheme[0] ?>;
+      --color-four: #0e1019;
     }
 
     @media (prefers-color-scheme: light) {
