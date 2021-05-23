@@ -36,9 +36,6 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
       float: none;
       display: block;
     }
-  }
-
-  @media only screen and (min-width : 600px) {
     #BodyLinks li a::after {
       border-bottom: solid 0px !important;
     }
