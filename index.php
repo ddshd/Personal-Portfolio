@@ -2,41 +2,55 @@
 
 <head>
   <?php $title = "Hi!"; ?>
+  <meta name="color-scheme" content="dark light">
   <?php include 'extras/meta.php'; ?>
   <?php function descriptionTag()
   {
     echo "Hi! I'm Dhrumil Shah!";
   } ?>
   <?php
-  $scheme0 = ['#e88565', '#181a27'];
+  $scheme0 = ['#eed973', '#28292b'];
   $scheme = ['#0f0a04', '#faac01'];
   ?>
   <?php include 'extras/noscript.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.18/dist/mailgo.min.js"></script>
   <style>
+    :root {
+      color-scheme: light dark;
+      --color-one: <?php echo $scheme[0] ?>;
+      --color-two: <?php echo $scheme[1] ?>;
+      --color-three: rgba(15,10,4,1);
+      --color-four: rgba(43,31,15,1);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --color-one: <?php echo $scheme0[0] ?>;
+        --color-two: <?php echo $scheme0[1] ?>;
+        --color-four: #7d8b92;
+        --color-three: #a7bac3;
+      }
+    }
+
+    footer * {
+      color: var(--color-two) !important;
+    }
+
     html,
     .body-container {
-
-      <?php
-      if ($scheme[0] == '#0f0a04') {
-        echo '
         background: rgb(15,10,4);
-        background: -moz-linear-gradient(0deg, rgba(15,10,4,1) 0%, rgba(43,31,15,1) 100%);
-        background: -webkit-linear-gradient(0deg, rgba(15,10,4,1) 0%, rgba(43,31,15,1) 100%);
-        background: linear-gradient(0deg, rgba(15,10,4,1) 0%, rgba(43,31,15,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f0a04",endColorstr="#2b1f0f",GradientType=1);';
-      } else {
-        echo '/* CHECK THE [0] COLOR FOR THE SCHEME ARRAY. IT IS FALSE SO THE GRADIENT IS NOT SHOWN. */';
-      }
-      ?>background-color: <?php echo $scheme[0]; ?>;
+        background: -moz-linear-gradient(0deg, var(--color-three) 0%, var(--color-four) 100%);
+        background: -webkit-linear-gradient(0deg, var(--color-three) 0%, var(--color-four) 100%);
+        background: linear-gradient(0deg, var(--color-three) 0%, var(--color-four) 100%);
+        background-color: var(--color-one);
     }
 
     body {
-      color: <?php echo $scheme[1]; ?>;
+      color: var(--color-two);
     }
 
     #EntranceText {
-      color: <?php echo $scheme[1]; ?>;
+      color: var(--color-two);
       text-align: left;
       font-size: 10vh;
     }
@@ -64,8 +78,8 @@
 
     #Entrance button {
       border-radius: 20px;
-      border: 2px solid <?php echo $scheme[1]; ?>;
-      color: <?php echo $scheme[1]; ?>;
+      border: 2px solid var(--color-two);
+      color: var(--color-two);
       background-color: transparent;
       font-size: 30px;
       padding: 10px 15px;
@@ -73,17 +87,17 @@
     }
 
     #Entrance button:hover {
-      background-color: <?php echo $scheme[1]; ?>;
-      color: <?php echo $scheme[0]; ?>;
+      background-color: var(--color-two);
+      color: var(--color-one);
       cursor: pointer;
       transition: .3s;
     }
 
     .EntranceContinueEmail {
-      background-color: <?php echo $scheme[1]; ?>;
+      background-color: var(--color-two);
       border-radius: 10px;
       border: 2px solid transparent;
-      color: <?php echo $scheme[0]; ?>;
+      color: var(--color-one);
       font-size: 3vh;
       padding: 15px;
       text-align: left;
@@ -102,17 +116,17 @@
 
     .EntranceContinueEmail button {
       border-radius: 20px !important;
-      border: 2px solid <?php echo $scheme[0]; ?> !important;
-      color: <?php echo $scheme[0]; ?> !important;
-      background-color: <?php echo $scheme[1]; ?> !important;
+      border: 2px solid var(--color-one) !important;
+      color: var(--color-one) !important;
+      background-color: var(--color-two) !important;
       font-size: 20px !important;
       padding: 5px 10px !important;
       transition: .3s !important;
     }
 
     .EntranceContinueEmail button:hover {
-      background-color: <?php echo $scheme[0]; ?> !important;
-      color: <?php echo $scheme[1]; ?> !important;
+      background-color: var(--color-one) !important;
+      color: var(--color-two) !important;
       cursor: pointer !important;
       transition: .3s !important;
     }
@@ -131,7 +145,7 @@
     #BodyLinks a:focus,
     #BodyLinks a:visited,
     #BodyLinks li a {
-      color: <?php echo $scheme[1]; ?>;
+      color: var(--color-two);
     }
 
     #BodyLinks li a::after {
@@ -151,9 +165,9 @@
       /* Safari 4.0 - 8.0 */
       animation-name: rotateBack;
       animation-duration: .5s;
-      color: <?php echo $scheme[0]; ?> !important;
+      color: var(--color-one) !important;
 
-      border: 4px solid <?php echo $scheme[0]; ?> !important;
+      border: 4px solid var(--color-one) !important;
       transform: scale(.5);
       padding: 10px 14px;
       font-size: 25px;
@@ -170,8 +184,8 @@
       animation-duration: .5s;
 
       padding: 10px 14px;
-      background-color: <?php echo $scheme[0]; ?>;
-      color: <?php echo $scheme[1]; ?> !important;
+      background-color: var(--color-one);
+      color: var(--color-two) !important;
     }
 
     @keyframes rotate {

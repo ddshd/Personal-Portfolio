@@ -15,7 +15,7 @@
     }
 
     footer a {
-      color: <?php echo $scheme[1]; ?> !important;
+      color: <?php echo $scheme[1]; ?>;
     }
 
     html, body {
