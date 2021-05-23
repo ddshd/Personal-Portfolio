@@ -8,7 +8,8 @@ function urlTag()
 
 function site_imageTag()
 {
-  echo "https://iamdhrumilshah.com/img/socialThumb.png";
+  urlTag();
+  echo "img/socialThumb.png";
 }
 
 $input = array($One, $Two, $Three, $Four, $Five);
