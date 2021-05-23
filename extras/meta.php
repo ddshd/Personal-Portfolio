@@ -8,8 +8,7 @@ function urlTag()
 
 function site_imageTag()
 {
-  urlTag();
-  echo "img/socialThumb.png";
+  echo 'https://' . $_SERVER['HTTP_HOST'] . "/img/socialThumb.png";
 }
 
 $input = array($One, $Two, $Three, $Four, $Five);
