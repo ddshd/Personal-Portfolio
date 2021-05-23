@@ -38,6 +38,11 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
     }
   }
 
+  @media only screen and (min-width : 600px) {
+    #BodyLinks li a::after {
+      border-bottom: solid 0px !important;
+    }
+  }
 
   #BodyLinks li a::after {
     display: block;
@@ -97,22 +102,22 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
 <script>
   // auto hide menu links when it links to the same page
 
-  hideLinks2();
+  hideLinks();
 
-  function hideLinks2() {
-	if (document.getElementById("Entrance") != null) {
-	return;
-}
+  function hideLinks() {
+    if (document.getElementById("Entrance") != null) {
+      return;
+    }
 
     var RemoveQ = document.getElementById("BodyLinks").getElementsByTagName('a');
 
-	for (var i = 0; i < RemoveQ.length; i++) {
-    var Url = RemoveQ[i].href.split('/');
-var cUrl = window.location.href.split('/');
-	if (Url[Url.length - 1].includes(cUrl[cUrl.length-1])) {
-	RemoveQ[i].style.display="none";
-}
-}
+    for (var i = 0; i < RemoveQ.length; i++) {
+      var Url = RemoveQ[i].href.split('/');
+      var cUrl = window.location.href.split('/');
+      if (Url[Url.length - 1].includes(cUrl[cUrl.length - 1])) {
+        RemoveQ[i].style.display = "none";
+      }
+    }
   };
 
   // END auto hide menu links when it links to the same page
@@ -121,7 +126,7 @@ var cUrl = window.location.href.split('/');
       $('body').fadeOut(150).delay(500).fadeIn(1000);
     }
   });
-      $('body').animate({
-        opacity: 1
-      });
+  $('body').animate({
+    opacity: 1
+  });
 </script>
