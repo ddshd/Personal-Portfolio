@@ -158,7 +158,7 @@
 
     <div class="school vt">
       <li>
-        <img draggable="false" height="60px" src="<?php localDevEnvironment(); ?>/img/academics/VT.svg">
+        <img draggable="false" height="60px" src="<?php echo localDevEnvironment(); ?>/img/academics/VT.svg">
         <section style="font-size:xx-small;
         padding:5px 10px;
         transform:scale(.9);
@@ -178,7 +178,7 @@
 
     <div class="school vwcc">
       <li>
-        <img draggable="false" height="60px" style="filter: invert(100%);transform: scale(0.8);" src="<?php localDevEnvironment(); ?>/img/academics/vwcc.png"><br><br>
+        <img draggable="false" height="60px" style="filter: invert(100%);transform: scale(0.8);" src="<?php echo localDevEnvironment(); ?>/img/academics/vwcc.png"><br><br>
         <h3>Virginia Western Community College</h3>
         <h2><i class="fas fa-map-pin"></i> Roanoke, VA</h2>
         <br>
@@ -189,7 +189,7 @@
 
     <div class="school byrd">
       <li>
-        <img draggable="false" height="80px" src="<?php localDevEnvironment(); ?>/img/academics/byrd.png"><br><br>
+        <img draggable="false" height="80px" src="<?php echo localDevEnvironment(); ?>/img/academics/byrd.png"><br><br>
         <h3>William Byrd High School</h3>
         <h2><i class="fas fa-map-pin"></i> Vinton, VA</h2>
         <br>

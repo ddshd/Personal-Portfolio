@@ -285,7 +285,7 @@
     <?php
     if (file_exists("resume.pdf")) {
       echo '<ul id="BodyLinks"><center><li style="font-size: x-large;"><a href="';
-      localDevEnvironment();
+      echo localDevEnvironment();
       echo '/resume">Resume</a></li></center></ul>';
     }
     ?>

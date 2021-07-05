@@ -3,6 +3,7 @@
 <head>
   <?php $title = "Projects"; ?>
   <?php include 'extras/meta.php'; ?>
+  <?php include 'ProjectClass.php'; ?>
   <?php function descriptionTag()
   {
     echo "Here are some of the projects I've worked on to build up my experience.";
@@ -10,6 +11,8 @@
   <?php $scheme0 = ['#0d38b1', '#fff']; ?>
   <?php $scheme = ['#3b465c', '#e9e8d4']; ?>
   <?php include 'extras/noscript.php'; ?>
+  <!-- Mail link -->
+  <script src="https://cdn.jsdelivr.net/npm/mailgo@0.9.18/dist/mailgo.min.js"></script>
   <style>
     html {
       background-color: <?php echo $scheme[0]; ?>;
@@ -24,14 +27,13 @@
       color: <?php echo $scheme[1]; ?>;
     }
 
+    .m-by { /* Mail link */
+      display: none;
+    }
+
     p {
       opacity: .5;
       font-weight: 100;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
     }
 
     h1 {
@@ -45,8 +47,17 @@
       border-radius: 5px;
     }
 
+    .projects h6 {
+      margin: 0;
+    }
+    .projects h2 {
+      margin-bottom: 0;
+      margin-top: 11;
+    }
+
     .projects a {
       padding: 0 !important;
+      margin: 10;
       -webkit-transition: all .2s ease;
       -moz-transition: all .2s ease;
       -o-transition: all .2s ease;
@@ -54,7 +65,7 @@
       transition: all .2s ease;
     }
 
-    .projects *:not(#image) {
+    .projects *:not(#image):not(#cornericon-container *) {
       padding: 1px 10px;
     }
 
@@ -80,18 +91,21 @@
       padding: 7px !important;
       margin-right: -15px;
     }
-
     i {
       cursor: pointer;
     }
-
     .fa-code {
       transform: scale(.8);
     }
-
-    .fa-lock,
-    .fa-lock:hover {
-      transform: translate(-8px, -1px) !important;
+    #cornericon-container * {
+      border: none;
+    }
+    #cornericon-container td {
+      padding: 2px;
+    }
+    #cornericon-container {
+      float: right;
+      z-index: 1;
     }
 
     .projects i:not(.cornericon) {
@@ -180,6 +194,14 @@
         border-color: transparent transparent transparent <?php echo $scheme[1]; ?>;
       }
     }
+
+    #divider {
+      background: <?php echo $scheme[1] ?>;
+      width: 1px;
+      height: 45px;
+      opacity: .3;
+      margin: 18px 0px;
+    }
   </style>
 
 </head>
@@ -196,105 +218,59 @@
     <center>
       <h1>Projects</h1>
 
-      <div class="projects SayonaReportingDatabase">
-        <div>
-          <h4><i class="fas fa-hand-holding-usd tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Paid Work.</span></i></h4>
-          <h4><i class="fas fa-lock tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Closed Source.</span></i></h4>
-        </div>
-        <br>
-        <h2>Business Revenue Reporting</h2>
-        <br>
-        <h5>An MySQL powered fully featured business reporting software. Written in PHP and Javascript with Bootstrap. The entire system was build from ground up for the needs of the business and has been in prodction since late 2016.</h5>
-        <br>
-        <h5>This project is an internal tool used by the business, there is no public access.</h5>
-        <br>
-        <div id="image" style="background-image:url(<?php localDevEnvironment(); ?>/img/projects/SayonaReportingDatabase.png);"></div>
-      </div>
-
-      <div style="background:<?php echo $scheme[1]; ?>;width: 1px;height: 45px;opacity: .3;margin: 18px 0px;"></div>
-
-      <div class="projects VTClassSearch">
-        <br>
-        <h2>VT (Easy) Class Search</h2>
-        <h6>iamdhrumilshah.com/vt</h6>
-        <br>
-        <h5>A website to enable faster search into Virginia Tech's class timetable.</h5>
-        <br>
-        <a href="//iamdhrumilshah.com/vt" target="_blank"><i class="fas fa-link"><span> Live Version</span></i></a>
-        <br>
-        <br>
-        <a href="//github.com/ddshd/VTClassSearch" target="_blank"><i class="fas fa-code"><span> Source Code</span></i></a>
-        <br><br>
-        <div id="image" style="background-image:url(<?php localDevEnvironment(); ?>/img/projects/VTClassSearch.png);"></div>
-      </div>
-
-      <div style="background:<?php echo $scheme[1]; ?>;width: 1px;height: 45px;opacity: .3;margin: 18px 0px;"></div>
-
-      <div class="projects culdesac">
-        <div>
-          <h4><i class="fas fa-hand-holding-usd tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Paid Work.</span></i></h4>
-          <h4><i class="fas fa-lock tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Closed Source.</span></i></h4>
-        </div>
-        <br>
-        <h2>Culdesac</h2>
-        <h6>culdesacbrand.com</h6>
-        <br>
-        <h5>Culdesac is a brand initiated in Vancouver, BC, Canada which showcases inspiring artists and a clothing brand showcasing the Culdesac brand.</h5>
-        <br>
-        <a href="//culdesacbrand.com" target="_blank"><i class="fas fa-link"><span> Live Version</span></i></a>
-        <br>
-        <br>
-        <a href="//web.archive.org/web/20190703053023/https://culdesacbrand.com/" target="_blank"><i class="fas fa-archive"><span> Archived Version</span></i></a>
-        <br><br>
-        <div id="image" style="background-image:url(<?php localDevEnvironment(); ?>/img/projects/culdesacbrand.png);background-position: top;"></div>
-      </div>
-
-      <div style="background:<?php echo $scheme[1]; ?>;width: 1px;height: 45px;opacity: .3;margin: 18px 0px;"></div>
-
-      <div class="projects kevinhackett">
-        <div>
-          <h4><i class="fas fa-hand-holding-usd tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Paid Work.</span></i></h4>
-          <h4><i class="fas fa-lock tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Closed Source.</span></i></h4>
-        </div>
-        <br>
-        <h2>Kevin Hackett</h2>
-        <h6>iamkevinhackett.com</h6>
-        <br>
-        <h5>Kevin Hackett is an up-and-coming artist from Vancouver, BC, Canada.</h5>
-        <br>
-        <a href="//iamkevinhackett.com" target="_blank"><i class="fas fa-link"><span> Live Version</span></i></a>
-        <br>
-        <br>
-        <a href="//web.archive.org/web/20190629011606/https://iamkevinhackett.com/" target="_blank"><i class="fas fa-archive"><span> Archived Version</span></i></a>
-        <br><br>
-        <div id="image" style="background-image:url(<?php localDevEnvironment(); ?>/img/projects/kevinhackett.png);"></div>
-      </div>
-
-      <div style="background:<?php echo $scheme[1]; ?>;width: 1px;height: 45px;opacity: .3;margin: 18px 0px;"></div>
-
-      <div class="projects sayonallc">
-        <div>
-          <h4><i class="fas fa-hand-holding-usd tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Paid Work.</span></i></h4>
-          <h4><i class="fas fa-lock tooltip cornericon"><span class="tooltiptext" style="font-size:x-small;">Closed Source.</span></i></h4>
-        </div>
-        <br>
-        <h2>Sayona, LLC</h2>
-        <h6>sayonallc.com</h6>
-        <br>
-        <h5>A business working to create a chain of amazing convenience store in the Roanoke Valley area.</h5>
-        <br>
-        <a href="//sayonallc.com" target="_blank"><i class="fas fa-link"><span> Live Version</span></i></a>
-        <br>
-        <br>
-        <div id="image" style="background-image:url(<?php localDevEnvironment(); ?>/img/projects/sayona.png);"></div>
-      </div>
+      <?php
+      $data = array_reverse(json_decode($json, true)["projects"]);
+      $iTemp1 = 0;
+      foreach ($data as $_) {
+        $obj = new Project;
+        foreach ($_ as $key => $value) {
+          switch ($key) {
+            case "name":
+              $obj->setName($value);
+              break;
+            case "title":
+              $obj->setTitle($value);
+              break;
+            case "description":
+              $obj->setDescription($value);
+              break;
+            case "short_url":
+              $obj->setShortURL($value);
+              break;
+            case "live_url":
+              $obj->setLiveURL($value);
+              break;
+            case "source_url":
+              $obj->setSourceCode($value);
+              break;
+            case "archive_url":
+              $obj->setArchiveURL($value);
+              break;
+            case "flags":
+              sort($value);
+              $obj->setFlags($value);
+              break;
+            case "image_name":
+              $obj->image($value);
+              break;
+            case "contactForSourceCode":
+              $obj->setContactForSourceCode();
+              break;
+          }
+        }
+        echo $obj->toString();
+        if (++$iTemp1 < count($data)) {
+          echo "\n<div id=\"divider\"></div>\n";
+        }
+      }
+      ?>
 
       <script>
         $('.projects').tilt({
-          maxTilt: 10,
+          maxTilt: 5,
           speed: 5500, // Speed of the enter/exit transition.
           transition: true, // Set a transition on enter/exit.
-          scale: 1.005,
+          scale: 1.015,
           easing: "cubic-bezier(.03,.98,.52,.99)" // Easing on enter/exit.
         });
       </script>

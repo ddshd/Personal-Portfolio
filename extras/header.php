@@ -88,10 +88,10 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || strpos($_SERVER['
   <ul id="BodyLinks">
     <center>
       <li><a id="homeLink" href="//<?php echo $_SERVER['HTTP_HOST'];
-                                    localDevEnvironment(); ?>">Home</a></li>
-      <li><a href="<?php localDevEnvironment(); ?>/about">About Me</a></li>
-      <li><a href="<?php localDevEnvironment(); ?>/education">Education</a></li>
-      <li><a href="<?php localDevEnvironment(); ?>/projects">Projects</a></li>
+                                    echo localDevEnvironment(); ?>">Home</a></li>
+      <li><a href="<?php echo localDevEnvironment(); ?>/about">About Me</a></li>
+      <li><a href="<?php echo localDevEnvironment(); ?>/education">Education</a></li>
+      <li><a href="<?php echo localDevEnvironment(); ?>/projects">Projects</a></li>
     </center>
   </ul>
 </nav>

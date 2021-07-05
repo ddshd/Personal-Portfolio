@@ -10,7 +10,7 @@ $Five = ['#b6cabf', '#c02a1a'];
 <head>
   <?php $title = "About"; ?>
   <?php include 'extras/meta.php'; ?>
-  <?php $ExtraFooter = "Adobe Creative Suite and AutoDESK suite logos are owned by their respectible owners."; ?>
+  <?php $ExtraFooter = "Logos of software languages, database technologies, and cloud providers are owned by their respectible owners."; ?>
   <?php function descriptionTag()
   {
     echo "Here is a little about me.";
@@ -95,7 +95,7 @@ $Five = ['#b6cabf', '#c02a1a'];
         <br><br>
         Eventually, I replaced my infatuation with a true passion for computers. Since then, I have worked with multiple individuals, companies, and non-profit organizations, trying to better my surroundings with the skill and talent I possess. However, I know there is so much more I can learn and do for the community, which is why I decided to pursue a degree in computer science.
         <br><br>
-        As a third year student at Virginia Tech, I am expanding my skills in designing advanced algorithms and developing software. I look forward to working with others in my field to leave the world better than I found it.
+        As a senior at Virginia Tech, I am expanding my skills in designing advanced algorithms and developing software. I look forward to working with others in my field to leave the world better than I found it.
         </p>
       </div>
 
@@ -115,27 +115,38 @@ $Five = ['#b6cabf', '#c02a1a'];
             <br>
 
             <h3 style="transform: translateZ(22px);">Web:</h3>
-            <span><i class="fab fa-css3"></i> CSS</span>
             <span><i class="fab fa-html5"></i> HTML</span>
+            <span><i class="fab fa-css3"></i> CSS</span>
+            <span><i class="fab fa-react"></i> React.js</span>
             <span><i class="fab fa-php"></i> PHP</span>
-            <span><i class="fas fa-database"></i> MySQL</span>
             <span><i class="fab fa-js-square"></i> Javascript</span>
+            <span><i class="fas fa-code"></i> jQuery</span>
 
+            <h3 style="transform: translateZ(22px);">Databases:</h3>
+            <span><i class="fas fa-database"></i> MySQL</span>
+            <span><i class="fab fa-envira"></i> MongoDB</span>
+
+            <h3 style="transform: translateZ(22px);">Cloud Platform:</h3>
+            <span><i class="fab fa-aws"></i> Amazon Web Services</span>
+            <span><i class="fab fa-google"></i> Google Cloud Platform</span>
+
+
+            <!--
             <br>
             <br>
 
             <h3 style="transform: translateZ(22px);">Design:</h3>
 
-            <img draggable="false" src="<?php localDevEnvironment(); ?>/img/about/PP.svg">
-            <img draggable="false" src="<?php localDevEnvironment(); ?>/img/about/AF.svg">
-            <img draggable="false" src="<?php localDevEnvironment(); ?>/img/about/Photoshop.svg">
-            <img draggable="false" src="<?php localDevEnvironment(); ?>/img/about/Muse.svg">
+            <img draggable="false" src="<?php echo localDevEnvironment(); ?>/img/about/PP.svg">
+            <img draggable="false" src="<?php echo localDevEnvironment(); ?>/img/about/AF.svg">
+            <img draggable="false" src="<?php echo localDevEnvironment(); ?>/img/about/Photoshop.svg">
+            <img draggable="false" src="<?php echo localDevEnvironment(); ?>/img/about/Muse.svg">
 
             <br>
 
             <span>
               <center>
-                <img style="background-color: #fbeccf;padding: 10px;border-radius: 8px;" draggable="false" src="<?php localDevEnvironment(); ?>/img/about/Autodesk.svg">
+                <img style="background-color: #fbeccf;padding: 10px;border-radius: 8px;" draggable="false" src="<?php echo localDevEnvironment(); ?>/img/about/Autodesk.svg">
                 <br>
                 - AutoCAD
                 <br>
@@ -144,6 +155,8 @@ $Five = ['#b6cabf', '#c02a1a'];
                 - Inventor
               </center>
             </span>
+
+            --->
           </center>
         </div>
       </div>

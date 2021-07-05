@@ -34,11 +34,10 @@ function localDevEnvironment()
 
   $Fullurl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
   $urlFirstDir = explode('/', str_ireplace(array('http://', 'https://'), '', $Fullurl));
-
   if ($currentD == "iamdhrumilshah.com" && $urlFirstDir[1] == "develop") {
-    echo "/" . $urlFirstDir[1];
+    return "/" . $urlFirstDir[1];
   } elseif ($currentD == "[::ffff:0:0]" || $currentD == "[::]" || $currentD == "[::1]" || $currentD == "localhost" || $currentD == $DeviceLocaliP || $currentD == "127.0.0.1" || $currentD == "0.0.0.0") {
-    echo "/" . $urlFirstDir[1];
+    return "/" . $urlFirstDir[1];
   }
 }
 
@@ -59,7 +58,7 @@ Thanks to Font Awesome for access to the free, amazing, and easy-to-use webfonts
 
 
 <meta charset="utf-8">
-<link rel="shortcut icon" type="image/png" href="<?php localDevEnvironment(); ?>/extras/favicon.png" />
+<link rel="shortcut icon" type="image/png" href="<?php echo localDevEnvironment(); ?>/extras/favicon.png" />
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Dhrumil Shah">
 <meta name="viewport" content="width = device-width">

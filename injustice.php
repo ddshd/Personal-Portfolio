@@ -22,7 +22,7 @@
       margin: 0;
       color: <?php echo $scheme[1]; ?>;
       background-image: url(<?php echo '"';
-                            localDevEnvironment();
+                            echo localDevEnvironment();
                             echo '/img/injustice/fist.png"'; ?>);
       background-repeat: repeat center;
       background-size: 100px;
@@ -82,7 +82,7 @@
       <br>
       <br>
 
-      <form action="<?php localDevEnvironment();
+      <form action="<?php echo localDevEnvironment();
                     echo '/' ?>" method="get" target="_self">
         <button type="submit">Home</button>
       </form>
