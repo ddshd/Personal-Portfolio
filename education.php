@@ -1,121 +1,134 @@
 <html>
+
 <head>
-  <?php  $title = "Education"; ?>
-  <?php include 'extras/meta.php';?>
-  <?php function descriptionTag() { echo "Here is a little about my past educational experience."; }  ?>
+  <?php $title = "Education"; ?>
+  <?php include 'extras/meta.php'; ?>
+  <?php function descriptionTag()
+  {
+    echo "Here is a little about my past educational experience.";
+  }  ?>
   <?php $scheme = ['#a6cfe2', '#0b0c10']; ?>
-  <?php include 'extras/noscript.php';?>
-<style>
+  <?php include 'extras/noscript.php'; ?>
+  <style>
+    body,
+    html {
+      background-color: <?php echo $scheme[0]; ?>;
+      color: <?php echo $scheme[1]; ?>;
+    }
 
-  body, html {
-    background-color: <?php echo $scheme[0]; ?>;
-    color: <?php echo $scheme[1]; ?>;
-  }
+    p,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: 0;
+    }
 
-  p, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-  }
+    #Schools {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+    }
 
-  #Schools {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width:100%;
-    text-align: center;
-  }
+    #Schools div:not(#WBHS):not(.innerBoxes) {
+      float: none;
+      display: inline-block;
+      margin: 15px 8vw;
+      width: 90vw;
+      max-width: 450px;
+      border: 1px dotted black;
+      padding: 15px 5px;
+      border-radius: 2px;
+      background-color: <?php echo $scheme[0]; ?>;
+      -webkit-transition: all .8s ease;
+      -moz-transition: all .8s ease;
+      -o-transition: all .8s ease;
+      -ms-transition: all .8s ease;
+      transition: all .8s ease;
+    }
 
-  #Schools div:not(#WBHS):not(.innerBoxes) {
-    float: none;
-    display:inline-block;
-    margin: 15px 8vw;
-    width: 90vw;
-    max-width: 450px;
-    border: 1px dotted black;
-    padding: 15px 5px;
-    border-radius: 2px;
-    background-color: <?php echo $scheme[0]; ?>;
-    -webkit-transition: all .8s ease;
-    -moz-transition: all .8s ease;
-    -o-transition: all .8s ease;
-    -ms-transition: all .8s ease;
-    transition: all .8s ease;
-  }
+    #Schools div:hover:not(#WBHS):not(.innerBoxes) {
+      transform: scale(1.01);
+      box-shadow: 4px 4px 15px 1px #00000014;
+    }
 
-  #Schools div:hover:not(#WBHS):not(.innerBoxes) {
-    transform: scale(1.01);
-    box-shadow: 4px 4px 15px 1px #00000014;
-  }
+    @media screen and (max-width: 600px) {
+      #Schools li {
+        float: none;
+      }
 
-  @media screen and (max-width: 600px) {
-    #Schools li {float: none;}
-    #Schools div:not(.innerBoxes) {margin:15px 0px !important;}
-  }
+      #Schools div:not(.innerBoxes) {
+        margin: 15px 0px !important;
+      }
+    }
 
-  #Schools #scores {
-    padding: 15px 20px;
-    width: fit-content;
-    border-radius: 5px;
-    background-color: orange;
-    margin: 0px 5px;
-  }
+    #Schools #scores {
+      padding: 15px 20px;
+      width: fit-content;
+      border-radius: 5px;
+      background-color: orange;
+      margin: 0px 5px;
+    }
 
-  h4 {
-    font-weight: 450;
-  }
+    h4 {
+      font-weight: 450;
+    }
 
-  h3 {
-    font-weight: 500;
-  }
+    h3 {
+      font-weight: 500;
+    }
 
-  h2 {
-    font-size: 15px;
-    font-weight: 400;
-  }
+    h2 {
+      font-size: 15px;
+      font-weight: 400;
+    }
 
-  span {
-    font-weight: 300;
-  }
+    span {
+      font-weight: 300;
+    }
 
-  #WBHS {
-    text-align: left;
-  }
+    #WBHS {
+      text-align: left;
+    }
 
-  .innerBoxes {
-    border: 1px black dashed;
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0px 25px;
-  }
+    .innerBoxes {
+      border: 1px black dashed;
+      padding: 10px;
+      border-radius: 20px;
+      margin: 0px 25px;
+    }
 
-  #Schools i {
-    padding: 5px;
-  }
+    #Schools i {
+      padding: 5px;
+    }
 
-  #Schools i:hover {
-    transform: scale(1) !important;
-  }
+    #Schools i:hover {
+      transform: scale(1) !important;
+    }
 
-  #summary-text {
-    width: 90%;
-    max-width:700px;
-    text-align: left;
-    font-weight: 400;
-    font-size: 120%;
-    line-height: 1.6;
-  }
-
-</style>
+    #summary-text {
+      width: 90%;
+      max-width: 700px;
+      text-align: left;
+      font-weight: 400;
+      font-size: 120%;
+      line-height: 1.6;
+    }
+  </style>
 
 
-<script type="text/javascript">
-  function SAT_Popup() {
-    alert("[1] This is a combined score of the greater of the two scores.");
-  }
-</script>
+  <script type="text/javascript">
+    function SAT_Popup() {
+      alert("[1] This is a combined score of the greater of the two scores.");
+    }
+  </script>
 
-<!-- to make the school boxes move based on mouse location
+  <!-- to make the school boxes move based on mouse location
 
 <script>
   $(document).on("mousemove", function(event){
@@ -134,32 +147,32 @@
 </head>
 
 <div id="header">
-  <?php include 'extras/header.php';?>
+  <?php include 'extras/header.php'; ?>
 </div>
 
 <body>
-<div class="body-container">
+  <div class="body-container">
 
-  <Br>
+    <Br>
 
-<center>
-  <h1>Education</h1>
-
-  <h4 id="summary-text">
-  I started my journey by perfecting the major AutoDesk products (CAD, Revit, and Inventor) in high school. After which, I completed one year at Virginia Western Community College before transferring to Virginia Tech. There, I furthered my education in advanced data structures and algorithms in languages, such as Java, C, Swift, and Python. I also continued to improve my skills in these self taught languages; HTML/CSS, Javascript, PHP and MySQL databases.
-  <br><br>
-  Currently, I am pursuing my education in computer science at the Virginia Polytechnic Institute and State University. I will be graduating in the Spring 2020 with a Bachelors of Computer Science. One day, I would like to create a piece of software that will change someone’s life for the better.
-  </h4>
-
-  <br><br>
-
-  <ul id="Schools">
     <center>
+      <h1>Education</h1>
 
-    <div class="school vt">
-      <li>
-        <img draggable="false" height="60px" src="<?php echo localDevEnvironment(); ?>/img/academics/VT.svg">
-        <section style="font-size:xx-small;
+      <h4 id="summary-text">
+        I started my journey by perfecting the major AutoDesk products (CAD, Revit, and Inventor) in high school. After which, I completed one year at Virginia Western Community College before transferring to Virginia Tech. There, I furthered my education in advanced data structures and algorithms in languages, such as Java, C, Swift, and Python. I also continued to improve my skills in these self taught languages; HTML/CSS, Javascript, PHP and MySQL databases.
+        <br><br>
+        Currently, I am pursuing my education in computer science at the Virginia Polytechnic Institute and State University. I will be graduating in the December 2021 with a Bachelors of Computer Science. One day, I would like to create a piece of software that will change someone’s life for the better.
+      </h4>
+
+      <br><br>
+
+      <ul id="Schools">
+        <center>
+
+          <div class="school vt">
+            <li>
+              <img draggable="false" height="60px" src="<?php echo localDevEnvironment(); ?>/img/academics/VT.svg">
+              <section style="font-size:xx-small;
         padding:5px 10px;
         transform:scale(.9);
         background-color:#8B1F41;
@@ -167,15 +180,16 @@
         width:fit-content;
         border-radius:15px;
         margin-top: -7px;">Currently Attending</section>
-        <br>
-        <h3 title="Virginia Polytechnic Institute and State University">Virginia Tech</h3>
-        <h2><i class="fas fa-map-pin"></i> Blacksburg, VA</h2>
-        <br>
-        <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2019 - Exp. December 2021</span>
-        <h2><i class="fas fa-graduation-cap"></i> Computer Science B.S.</h2>
-      </li>
-    </div>
+              <br>
+              <h3 title="Virginia Polytechnic Institute and State University">Virginia Tech</h3>
+              <h2><i class="fas fa-map-pin"></i> Blacksburg, VA</h2>
+              <br>
+              <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2018 - Exp. December 2021</span>
+              <h2><i class="fas fa-graduation-cap"></i> Computer Science B.S.</h2>
+            </li>
+          </div>
 
+          <!--
     <div class="school vwcc">
       <li>
         <img draggable="false" height="60px" style="filter: invert(100%);transform: scale(0.8);" src="<?php echo localDevEnvironment(); ?>/img/academics/vwcc.png"><br><br>
@@ -194,9 +208,8 @@
         <h2><i class="fas fa-map-pin"></i> Vinton, VA</h2>
         <br>
         <span><i class="fas fa-calendar-week"></i> 2014 - 2018</span>
-    <!--
-        <h2><i class="fas fa-graduation-cap"></i> GPA: 3.27</h2>
-    -->
+
+
         <br><br>
         <div class="innerBoxes">
           <h4>Certification:</h4>
@@ -234,25 +247,27 @@
             </div>
           </div>
       </li>
+          <br><br><br>
+
     </div>
+          -->
+        </center>
+      </ul>
+
+      <script>
+        $('.school').tilt({
+          maxTilt: 5,
+          speed: 5000, // Speed of the enter/exit transition.
+          transition: true, // Set a transition on enter/exit.
+          scale: 1.005,
+          perspective: 400,
+          easing: "cubic-bezier(.03,.98,.52,.99)" // Easing on enter/exit.
+        })
+      </script>
 
     </center>
-  </ul>
-
-  <script>
-    $('.school').tilt({
-      maxTilt: 5,
-      speed: 5000,    // Speed of the enter/exit transition.
-      transition: true,   // Set a transition on enter/exit.
-      scale: 1.005,
-      perspective: 400,
-      easing: "cubic-bezier(.03,.98,.52,.99)" // Easing on enter/exit.
-  })
-  </script>
-
-</center>
-<br><br><br>
-<?php include 'extras/footer.php'; ?>
-</div>
+    <?php include 'extras/footer.php'; ?>
+  </div>
 </body>
+
 </html>
