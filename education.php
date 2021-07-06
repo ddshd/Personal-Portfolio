@@ -171,7 +171,7 @@
         <h3 title="Virginia Polytechnic Institute and State University">Virginia Tech</h3>
         <h2><i class="fas fa-map-pin"></i> Blacksburg, VA</h2>
         <br>
-        <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2019 - Exp. 2022</span>
+        <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2019 - Exp. December 2021</span>
         <h2><i class="fas fa-graduation-cap"></i> Computer Science B.S.</h2>
       </li>
     </div>
