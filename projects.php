@@ -57,7 +57,7 @@
 
     .projects a {
       padding: 0 !important;
-      margin: 10;
+      /* margin: 10; */
       -webkit-transition: all .2s ease;
       -moz-transition: all .2s ease;
       -o-transition: all .2s ease;
@@ -114,7 +114,7 @@
     }
 
     .projects i:hover:not(.cornericon) {
-      transform: scale(1) !important;
+      transform: scale(1);
       background-color: <?php echo $scheme[1]; ?>;
       color: <?php echo $scheme[0]; ?>;
       padding-top: 8px !important;
@@ -172,7 +172,7 @@
     }
 
     @media screen and (max-width: 500px) {
-      .tooltip .tooltiptext {
+      .tooltip .tooltiptext:not(.recruiterOnlyButtonLabel) {
         top: 5px;
         right: 100%;
       }
@@ -182,7 +182,7 @@
         right: 100% !important;
       }
 
-      .tooltip .tooltiptext::after {
+      .tooltip .tooltiptext::after:not(.recruiterOnlyButtonLabel) {
         content: " ";
         position: absolute;
         top: 50%;
@@ -193,6 +193,13 @@
         border-style: solid;
         border-color: transparent transparent transparent <?php echo $scheme[1]; ?>;
       }
+
+      /* Margin-left to center the label is in javascript at the bottom */
+
+      .recruiterOnlyButton {
+        font-size: x-small;
+      }
+
     }
 
     #divider {
@@ -273,6 +280,18 @@
           scale: 1.015,
           easing: "cubic-bezier(.03,.98,.52,.99)" // Easing on enter/exit.
         });
+    
+      /**
+       * Set margin-left of the recruiterOnlyButtonLabel so that it is in the center
+       * of the button (since button width changes based on device)
+       */
+
+
+      $(document).ready(() => {
+        $(".recruiterOnlyButtonLabel")
+        .css("margin-left", $(".recruiterOnlyButtonLabel").width() / -1.78);
+      });
+
       </script>
 
     </center>

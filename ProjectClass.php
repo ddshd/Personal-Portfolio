@@ -30,17 +30,17 @@ class Project
     }
 
     function setContactForSourceCode() {
-      $this->contactForSourceCode = "<a href=\"#mailgo\" class=\"email_popup dark\" data-address=\"contact\" data-domain=\"iamdhrumilshah.com\"><i class='fas fa-envelope tooltip'><span>
+      $this->contactForSourceCode = "<center><a href=\"#mailgo\" class=\"email_popup dark\" data-address=\"contact\" data-domain=\"iamdhrumilshah.com\"><i class='fas fa-envelope tooltip recruiterOnlyButton'><span>
       
       Contact me to take a look at the source code
       
       </span>
       
-      <center>
-      <span class=\"tooltiptext\" style=\"font-size:x-small;width: fit-content;top: 120%;left: 50%;margin-left: -60px;\">Available to recruiters only.</span>
-      </center>
       
-      </i></a><br><br>";
+      <span class=\"tooltiptext recruiterOnlyButtonLabel\" style=\"font-size:x-small;width: fit-content;top: 120%;left: 50%;\">Available to recruiters only.</span>
+      
+      
+      </i></a></center><br>";
     }
 
     function setDescription($d)
