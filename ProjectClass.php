@@ -217,6 +217,12 @@ $json = '{
         "title": "Dynamic storage allocator",
         "contactForSourceCode": true,
         "description": "This is a dynamic storage allocator implemented using a segregated free list. The API is fully functional with the ability to malloc, free, and realloc memory a program to be able to use. This API is a functionally identical memory allocator to malloc from stdlib.h, however, with improved performance."
+      },
+      {
+        "name": "BobcatTV",
+        "title": "Video and Audio Live Streaming platform for BobcatSports",
+        "contactForSourceCode": true,
+        "description": "Developed a full-fledged live streaming platform for Bobcat Sports from Radford, VA. Worked as a team to create a full stack system for live sports, events, and podcast streaming with live score updates and notifications. The MEAN (MongoDB, ExpressJS, Angular, and NodeJS) stack was used for this project. I took advantage of AWS CloudWatch, CloudFront, EC2-based load balancing to dynamically scale server capacity based on viewer demand for smooth streaming and cost-saving during idle hours."
       }
     ]
   }';

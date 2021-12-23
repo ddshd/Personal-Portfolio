@@ -95,7 +95,7 @@ $Five = ['#b6cabf', '#c02a1a'];
         <br><br>
         Eventually, I replaced my infatuation with a true passion for computers. Since then, I have worked with multiple individuals, companies, and non-profit organizations, trying to better my surroundings with the skill and talent I possess. However, I know there is so much more I can learn and do for the community, which is why I decided to pursue a degree in computer science.
         <br><br>
-        As a senior at Virginia Tech, I am expanding my skills in designing advanced algorithms and developing software. I look forward to working with others in my field to leave the world better than I found it.
+        As a gradute from Virginia Tech I look forward to working with others in my field to leave the world better than I found it.
         </p>
       </div>
 
@@ -112,14 +112,17 @@ $Five = ['#b6cabf', '#c02a1a'];
             <span><i class="fas fa-terminal"></i> C</span>
             <span><i class="fab fa-swift"></i> Swift</span>
             <span><i class="fab fa-python"></i> Python</span>
+            <span><i class="fab fa-js-square"></i> Javascript</span>
             <br>
 
             <h3 style="transform: translateZ(22px);">Web:</h3>
             <span><i class="fab fa-html5"></i> HTML</span>
             <span><i class="fab fa-css3"></i> CSS</span>
             <span><i class="fab fa-react"></i> React.js</span>
+            <span><i class="fab fa-angular"></i> Angular</span>
+            <span><i class="fab fa-js"></i> Express.js</span>
+            <span><i class="fab fa-node"></i> Node.js</span>
             <span><i class="fab fa-php"></i> PHP</span>
-            <span><i class="fab fa-js-square"></i> Javascript</span>
             <span><i class="fas fa-code"></i> jQuery</span>
 
             <h3 style="transform: translateZ(22px);">Databases:</h3>
@@ -129,6 +132,8 @@ $Five = ['#b6cabf', '#c02a1a'];
             <h3 style="transform: translateZ(22px);">Cloud Platform:</h3>
             <span><i class="fab fa-aws"></i> Amazon Web Services</span>
             <span><i class="fab fa-google"></i> Google Cloud Platform</span>
+            <span><i class="fab fa-linode"></i> Linode</span>
+            <span><i class="fab fa-cloudflare"></i> Cloudflare</span>
 
 
             <!--

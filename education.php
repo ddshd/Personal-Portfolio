@@ -5,7 +5,7 @@
   <?php include 'extras/meta.php'; ?>
   <?php function descriptionTag()
   {
-    echo "Here is a little about my past educational experience.";
+    echo "Here is a little about my educational experience.";
   }  ?>
   <?php $scheme = ['#a6cfe2', '#0b0c10']; ?>
   <?php include 'extras/noscript.php'; ?>
@@ -158,10 +158,14 @@
     <center>
       <h1>Education</h1>
 
-      <h4 id="summary-text">
+      <!-- <h4 id="summary-text">
         I started my journey by perfecting the major AutoDesk products (CAD, Revit, and Inventor) in high school. After which, I completed one year at Virginia Western Community College before transferring to Virginia Tech. There, I furthered my education in advanced data structures and algorithms in languages, such as Java, C, Swift, and Python. I also continued to improve my skills in these self taught languages; HTML/CSS, Javascript, PHP and MySQL databases.
         <br><br>
         Currently, I am pursuing my education in computer science at the Virginia Polytechnic Institute and State University. I will be graduating in the December 2021 with a Bachelors of Computer Science. One day, I would like to create a piece of software that will change someone’s life for the better.
+      </h4> -->
+
+      <h4 id="summary-text">
+        I obtained my Bachelors of Science degree in Computer Science from Virginia Tech in December 2021. I graduated Magna Cum Laude and consecutively stayed on the Dean's list. I'll continue to work on my passion projects while I advance in my professional career.
       </h4>
 
       <br><br>
@@ -179,13 +183,14 @@
         color:white;
         width:fit-content;
         border-radius:15px;
-        margin-top: -7px;">Currently Attending</section>
+        margin-top: -7px;">Graduated</section>
               <br>
               <h3 title="Virginia Polytechnic Institute and State University">Virginia Tech</h3>
               <h2><i class="fas fa-map-pin"></i> Blacksburg, VA</h2>
               <br>
-              <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2018 - Exp. December 2021</span>
-              <h2><i class="fas fa-graduation-cap"></i> Computer Science B.S.</h2>
+              <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2018 - December 2021</span>
+              <h2><i class="fas fa-graduation-cap"></i> Bachelors of Science in Computer Science<br>
+              Magna Cum Laude and consecutive Dean's List</h2>
             </li>
           </div>
 
