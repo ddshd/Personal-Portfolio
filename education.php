@@ -3,6 +3,8 @@
 <head>
   <?php $title = "Education"; ?>
   <?php include 'extras/meta.php'; ?>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <?php function descriptionTag()
   {
     echo "Here is a little about my educational experience.";
@@ -126,6 +128,9 @@
     function SAT_Popup() {
       alert("[1] This is a combined score of the greater of the two scores.");
     }
+    lightbox.option({
+      'fadeDuration': 100
+    })
   </script>
 
   <!-- to make the school boxes move based on mouse location
@@ -188,9 +193,12 @@
               <h3 title="Virginia Polytechnic Institute and State University">Virginia Tech</h3>
               <h2><i class="fas fa-map-pin"></i> Blacksburg, VA</h2>
               <br>
-              <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2018 - December 2021</span>
+              <span style="font-style: italic;"><i class="fas fa-calendar-week"></i> 2019 - December 2021</span>
               <h2><i class="fas fa-graduation-cap"></i> Bachelors of Science in Computer Science<br>
-              Magna Cum Laude and consecutive Dean's List</h2>
+              Cum Laude and consecutive Dean's List</h2>
+              <h2><i class="fas fa-university"></i>
+              <a style="border-bottom: #8a1f41 solid 3px;" href="CeDiploma.png" data-lightbox="image-1" data-title="Electronic Diploma">Electronic Diploma</a>
+              </h2>
             </li>
           </div>
 

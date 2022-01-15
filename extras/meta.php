@@ -159,6 +159,7 @@ Thanks to Font Awesome for access to the free, amazing, and easy-to-use webfonts
   a:focus,
   a:visited {
     text-decoration: none !important;
+    color: inherit;
   }
 
   * {
