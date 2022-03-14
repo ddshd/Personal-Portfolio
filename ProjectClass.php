@@ -31,15 +31,15 @@ class Project
 
     function setContactForSourceCode() {
       $this->contactForSourceCode = "<center><a href=\"#mailgo\" class=\"email_popup dark\" data-address=\"contact\" data-domain=\"iamdhrumilshah.com\"><i class='fas fa-envelope tooltip recruiterOnlyButton'><span>
-      
+
       Contact me to take a look at the source code
-      
+
       </span>
-      
-      
+
+
       <span class=\"tooltiptext recruiterOnlyButtonLabel\" style=\"font-size:x-small;width: fit-content;top: 120%;left: 50%;\">Available to recruiters only.</span>
-      
-      
+
+
       </i></a></center><br>";
     }
 
@@ -162,7 +162,7 @@ $json = '{
         "title": "VT (Easy) Class Search",
         "short_url": "iamdhrumilshah.com/vt",
         "description": "A website to enable faster search into Virginia Tech\'s class timetable.",
-        "live_url": "https://iamdhrumilshah.com/vt",
+        "live_url": "/vt",
         "source_url": "https://github.com/ddshd/VTClassSearch/",
         "image_name": "VTClassSearch.png"
       },
@@ -223,6 +223,14 @@ $json = '{
         "title": "Video and Audio Live Streaming platform for BobcatSports",
         "contactForSourceCode": true,
         "description": "Developed a full-fledged live streaming platform for Bobcat Sports from Radford, VA. Worked as a team to create a full stack system for live sports, events, and podcast streaming with live score updates and notifications. The MEAN (MongoDB, ExpressJS, Angular, and NodeJS) stack was used for this project. I took advantage of AWS CloudWatch, CloudFront, EC2-based load balancing to dynamically scale server capacity based on viewer demand for smooth streaming and cost-saving during idle hours."
+      },
+      {
+        "name": "EVCostBreakdown",
+        "title": "EV Cost Breakdown",
+        "description": "Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.",
+        "live_url": "/ev-breakeven",
+        "source_url": "https://github.com/ddshd/EVCostBreakdown",
+        "image_name": "EVCostBreakdown.png"
       }
     ]
   }';

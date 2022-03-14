@@ -1,0 +1,255 @@
+<html>
+
+<head>
+    <title>EV Cost breakdown</title>
+
+    <meta property="og:title" content="EV Cost breakdown">
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.">
+    <meta property="og:site_name" content="Dhrumil Shah">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width = device-width">
+
+    <style>
+        html,
+        body {
+            background-color: lightblue;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+
+        }
+
+        html {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        .main {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>EV Cost Breakdown</h1>
+        <p>Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.</p>
+        <br>
+
+
+        <div>
+            <span>
+                <label for="ev_kwh" class="form-label">Battery capacity of your EV</label>
+                <div class="input-group mb-3">
+                    <input onkeyup="calclulate()" class="form-control" id="ev_kwh" type="number" step="1" value="89" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">kwh</span>
+                    </div>
+                </div>
+            </span>
+
+            <span>
+                <label for="ev_range" class="form-label">Range of your EV</label>
+                <div class="input-group mb-3">
+                    <input onkeyup="calclulate()" class="form-control" id="ev_range" type="number" step="1" value="320" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">miles</span>
+                    </div>
+                </div>
+            </span>
+
+            <span>
+                <label for="ev_charging_efficiency" class="form-label">Charging Efficiency</label>
+                <div class="input-group mb-3">
+                    <input onkeyup="calclulate()" class="form-control" id="ev_charging_efficiency" type="number" step="1"
+                        value="90" />
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">%</span>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+        <br><br>
+
+        <label for="whatToCalculate" class="form-label">What to calculate?</label>
+        <select onchange="calclulate()" id="whatToCalculate" class="form-select">
+            <option value="price_kwh">Price per kwh</option>
+            <option value="gas_mpg">mpg of eqivalent gas vehicle</option>
+            <option selected value="price_gal">Price per gallon of gas</option>
+            <option value="savings">Savings</option>
+        </select>
+        <div style="margin-top: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </svg>
+            <span id="option_info"></span>
+        </div>
+
+        <br />
+        <br />
+
+        <label for="price_kwh" class="form-label">Rate for charging</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input onkeyup="calclulate()" class="form-control" id="price_kwh" type="number" step="0.001" value="0.12" />
+            <div class="input-group-append">
+                <span class="input-group-text">/kwh</span>
+            </div>
+        </div>
+
+        <br />
+
+        <label for="gas_mpg" class="form-label">Efficiency of your gas vehicle (mpg or miles/gal)</label>
+        <div class="input-group mb-3">
+            <input onkeyup="calclulate()" class="form-control" id="gas_mpg" type="number" step="1" value="32" />
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">mpg</span>
+            </div>
+        </div>
+
+        <label for="price_gal" class="form-label">Gas price</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input onkeyup="calclulate()" class="form-control" id="price_gal" type="number" step="0.01" value="3.12" />
+            <div class="input-group-append">
+                <span class="input-group-text">/gal</span>
+            </div>
+        </div>
+
+        <br />
+
+        <label class="form-label">Amount Spent on Charging</label>
+        <h1 id="total_spent_ev" type="number"></h1>
+
+        <div id="gas_savings">
+            <label class="form-label">Amount Spent on gas</label>
+            <h1 id="total_spent_gas" type="number"></h1>
+
+            <label class="form-label">Amount Saved</label>
+            <h1 id="total_savings" type="number"></h1>
+        </div>
+
+        <button type="button" class="btn btn-info" onclick="calclulate()">
+            Calclulate
+        </button>
+        <button onclick="window.location.href = window.location.origin" type="button" class="btn btn-primary"><svg style="margin-bottom: 2.7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg> Back to portfolio website</button>
+    </div>
+</body>
+
+<script>
+    function round(num) {
+        if (num) return num.toFixed(2);
+        return 0.0;
+    }
+
+    function calclulate() {
+        var ev_kwh = document.getElementById("ev_kwh");
+        ev_kwh.removeAttribute("disabled");
+
+        var ev_range = document.getElementById("ev_range");
+        ev_range.removeAttribute("disabled");
+
+        var ev_charging_efficiency = document.getElementById(
+            "ev_charging_efficiency"
+        );
+        ev_charging_efficiency.removeAttribute("disabled");
+
+        var price_kwh = document.getElementById("price_kwh");
+        price_kwh.removeAttribute("disabled");
+
+        var gas_mpg = document.getElementById("gas_mpg");
+        gas_mpg.removeAttribute("disabled");
+
+        var price_gal = document.getElementById("price_gal");
+        price_gal.removeAttribute("disabled");
+
+        var total_spent_ev = document.getElementById("total_spent_ev");
+
+        var total_spent_gas = document.getElementById("total_spent_gas");
+
+        var total_savings = document.getElementById("total_savings");
+
+
+        var option_info = document.getElementById("option_info");
+
+        var selection = document.getElementById("whatToCalculate").value;
+        const disabledDom = document.getElementById(selection);
+
+        document.getElementById("gas_savings").style.display = "none";
+
+        if (disabledDom) {
+            disabledDom.setAttribute("disabled", true);
+        }
+
+        const elec_cost =
+            (ev_kwh.value / (ev_charging_efficiency.value / 100)) * price_kwh.value;
+        const gas_cost = (ev_range.value / gas_mpg.value) * price_gal.value;
+        const savings_cost = gas_cost - elec_cost;
+
+
+        option_info.innerText = "";
+
+        total_spent_ev.innerText = "";
+        total_spent_ev.innerText = "$" + round(elec_cost);
+
+        total_spent_gas.innerText = "$" + round(gas_cost);
+        total_savings.innerText = "$" + round(savings_cost);
+
+        switch (selection) {
+            case "price_gal":
+                price_gal.value = round(
+                    (100 * ev_kwh.value * price_kwh.value * gas_mpg.value) /
+                    (ev_charging_efficiency.value * ev_range.value)
+                );
+                option_info.innerText = "Calculate the price of gas needed to be equivalent to the amount of cost you'd spend on charging your EV.";
+                break;
+            case "price_kwh":
+                price_kwh.value = round(
+                    (price_gal.value * ev_range.value * ev_charging_efficiency.value) /
+                    (100 * gas_mpg.value * ev_kwh.value)
+                );
+                option_info.innerText = "Calculate the price of electricity needed to be equivalent to the amount of cost you'd spend on gas for your car.";
+                break;
+            case "gas_mpg":
+                gas_mpg.value = round(
+                    (price_gal.value * ev_charging_efficiency.value * ev_range.value) /
+                    (100 * ev_kwh.value * price_kwh.value)
+                );
+                option_info.innerText = "Calculate the efficiency of your gas vehicle to spend an equivalent amount on gas and charging your EV.";
+                break;
+            case "savings":
+                document.getElementById("gas_savings").style.display = "block";
+                option_info.innerHTML = "Calculate the amount of savings or losses between charging your EV and fueling your gas vehicle."
+                break;
+        }
+    }
+
+    calclulate();
+</script>
+
+</html>
