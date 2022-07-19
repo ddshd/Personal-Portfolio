@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculate Tesla DC charging rate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+    <style>
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 1%;
+            user-select: none;
+        }
+    </style>
+
+    <script>
+        function getSiblings(e) {
+            // for collecting siblings
+            let siblings = [];
+            // if no parent, return no sibling
+            if (!e.parentNode) {
+                return siblings;
+            }
+            // first child of the parent node
+            let sibling = e.parentNode.firstChild;
+
+            // collecting siblings
+            while (sibling) {
+                if (sibling.nodeType === 1 && sibling !== e) {
+                    siblings.push(sibling);
+                }
+                sibling = sibling.nextSibling;
+            }
+            return siblings;
+        }
+
+        var data = [
+            [0, 81],
+            [2.5, 95],
+            [5, 195],
+            [7.5, 220],
+            [10, 250],
+            [12.5, 250],
+            [15, 250],
+            [17.5, 250],
+            [20, 190],
+            [22.5, 163],
+            [25, 149],
+            [27.5, 145],
+            [30, 138],
+            [32.5, 140],
+            [35, 140],
+            [37.5, 140],
+            [40, 140],
+            [42.5, 130],
+            [45, 120],
+            [47.5, 115],
+            [50, 111],
+            [52.5, 111],
+            [55, 110],
+            [57.5, 105],
+            [60, 100],
+            [62.5, 95],
+            [65, 90],
+            [67.5, 87],
+            [70, 80],
+            [72.5, 75],
+            [75, 69],
+            [77.5, 60],
+            [80, 55],
+            [82.5, 50],
+            [85, 45],
+            [87.5, 40],
+            [90, 38],
+            [92.5, 30],
+            [95, 25],
+            [97.5, 19],
+            [100, 10]
+        ];
+
+        let teslaVoltage = 350;
+
+        const getMaximumVoltageBetweenConnection = () => Math.min(+document.getElementsByName("voltage")[0].value, teslaVoltage);
+        const getMaximumAmperageBetweenConnection = (socKWMax) => Math.min((socKWMax / getMaximumVoltageBetweenConnection()), +document.getElementsByName("amp")[0].value);
+
+        function calculate() {
+            var interpolate = d3.scale.linear()
+                .domain(
+                    data.map(function (p) { return p[0]; })
+                )
+                .range(
+                    data.map(function (p) { return p[1]; })
+                );
+
+
+            const soc = +document.getElementsByName("soc")[0].value;
+            const maxKWTeslaPerSOC = interpolate(soc) * 1000;
+
+            // Maximum supported between your car's battery, current SOC, and DC charger.
+            const maximumVoltageBetweenConnection = getMaximumVoltageBetweenConnection();
+            const maximumAmperageBetweenConnection = getMaximumAmperageBetweenConnection(maxKWTeslaPerSOC);
+
+            const result = Math.max(0, Math.round(maximumVoltageBetweenConnection * maximumAmperageBetweenConnection / 1000)) || 0;
+
+            document.getElementById("result").innerText = `~ ${result}kW`;
+            runGraph(soc, result);
+        }
+
+        function runGraph(currentSOC, calculateSOCMaxKW) {
+            var mapData = [{
+                x: data.map(inp => inp[0]),
+                y: data.map(inp => inp[1]),
+                mode: "lines",
+                name: "Supercharger"
+            },
+            {
+                x: data.map(inp => inp[0]),
+                y: data.map(inp => getMaximumVoltageBetweenConnection() * getMaximumAmperageBetweenConnection(inp[1] * 1000) / 1000),
+                mode: "lines",
+                name: "Third-party DC Charger"
+            },
+            {
+                x: [currentSOC],
+                y: [calculateSOCMaxKW],
+                mode: "markers",
+                marker: {
+                    color: 'rgb(219, 64, 82)',
+                    size: 15
+                },
+                name: "Current Maximum power input"
+            }
+            ];
+            var layout = {
+                xaxis: { range: [0, 100], title: "SOC (State of charge)" },
+                yaxis: { range: [0, Math.max(...mapData[0].y, ...mapData[1].y)], title: "Power Input (KW)" },
+                title: "SOC vs. Maximum DC Power Input"
+            };
+            Plotly.newPlot("myPlot", mapData, layout);
+        }
+
+        function menu(menuObj) {
+            getSiblings(menuObj).map(e => e.classList.remove("is-active"));
+            menuObj.classList.add("is-active");
+            switch (menuObj.innerText) {
+                case "Model S":
+                    data = [
+                        [5, 148],
+                        [7.5, 151],
+                        [10, 210],
+                        [12.5, 250],
+                        [15, 250],
+                        [17.5, 250],
+                        [20, 250],
+                        [22.5, 250],
+                        [25, 250],
+                        [27.5, 250],
+                        [30, 250],
+                        [32.5, 248],
+                        [35, 225],
+                        [37.5, 210],
+                        [40, 185],
+                        [42.5, 175],
+                        [45, 160],
+                        [47.5, 151],
+                        [50, 148],
+                        [52.5, 135],
+                        [55, 125],
+                        [57.5, 124],
+                        [60, 110],
+                        [62.5, 105],
+                        [65, 100],
+                        [67.5, 98],
+                        [70, 90],
+                        [72.5, 80],
+                        [75, 75],
+                        [77.5, 70],
+                        [80, 60],
+                        [82.5, 55],
+                        [85, 51],
+                        [87.5, 50],
+                        [90, 48],
+                        [92.5, 40],
+                        [95, 25]
+                    ];
+                    break;
+                case "Model 3":
+                    data = [
+                        [0, 81],
+                        [2.5, 95],
+                        [5, 195],
+                        [7.5, 220],
+                        [10, 250],
+                        [12.5, 250],
+                        [15, 250],
+                        [17.5, 250],
+                        [20, 190],
+                        [22.5, 163],
+                        [25, 149],
+                        [27.5, 145],
+                        [30, 138],
+                        [32.5, 140],
+                        [35, 140],
+                        [37.5, 140],
+                        [40, 140],
+                        [42.5, 130],
+                        [45, 120],
+                        [47.5, 115],
+                        [50, 111],
+                        [52.5, 111],
+                        [55, 110],
+                        [57.5, 105],
+                        [60, 100],
+                        [62.5, 95],
+                        [65, 90],
+                        [67.5, 87],
+                        [70, 80],
+                        [72.5, 75],
+                        [75, 69],
+                        [77.5, 60],
+                        [80, 55],
+                        [82.5, 50],
+                        [85, 45],
+                        [87.5, 40],
+                        [90, 38],
+                        [92.5, 30],
+                        [95, 25],
+                        [97.5, 19],
+                        [100, 10]
+                    ];
+                    break;
+            }
+            calculate();
+        }
+    </script>
+</head>
+
+<body>
+
+    <section class="hero is-full-height">
+        <div class="hero-body">
+            <div>
+                <p class="title">
+                    Calculate third-party Tesla DC charging rate
+                </p>
+                <br>
+                <p class="subtitle">
+                    With users importing the Tesla CCS1 Adapter into the USA, myself included, I want to create a quick
+                    tool you can
+                    use to calculate how much power you can expect to get at a third-party DC charger.
+                </p>
+            </div>
+        </div>
+
+        <div class="has-text-centered notification is-danger">
+            DO NOT TOUCH OR OPEN ANY CHARGING OR ELECTRICAL EQUIPMENT TO OPTAIN ANY INFORMATION NEEDED ON THIS PAGE.
+            <b>IT
+                WILL KILL YOU.</b>
+        </div>
+
+
+        <div class="hero-foot">
+            <nav class="tabs is-boxed is-fullwidth">
+                <div class="container">
+                    <ul>
+                        <li onclick="menu(this)"><a>Model S</a></li>
+                        <li onclick="menu(this)" class="is-active"><a>Model 3</a></li>
+                        <li onclick="menu(this)"><a>Model X</a></li>
+                        <li onclick="menu(this)"><a>Model Y</a></li>
+                    </ul>
+                </div>
+            </nav>
+    </section>
+
+    <br>
+
+    <label for="soc">
+        Enter your state of charge (SOC, %)
+        <input class="input is-success" keyup="calculate()" keydown="calculate()" onchange="calculate()" name="soc"
+            min="0" max="100" type="number" step="0">
+    </label>
+    <br>
+    <br>
+
+    <h2 class="title has-text-centered">Now take a look at the DC charger, it will have the output voltage and amperage listed.</h2>
+
+    <br>
+
+    <div class="columns">
+        <label class="column is-half" for="voltage">
+            Enter the maximum voltage (V) of your charger
+            <input class="input is-danger" keyup="calculate()" keydown="calculate()" onchange="calculate()"
+                name="voltage" min="0" type="number" step="0">
+        </label>
+
+        <label class="column is-half" for="amp">
+            Enter the maximum amperage (amp, A) of your charger
+            <input class="input is-danger" keyup="calculate()" keydown="calculate()" onchange="calculate()" name="amp"
+                min="0" type="number" step="0">
+
+        </label>
+    </div>
+
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-primary">
+                        <p id="result" class="title"></p>
+                        <p class="subtitle">Estimated Maximum DC Power Input</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="limitations"></h2>
+    <div id="myPlot" width="100%"></div>
+
+</body>
+
+<script>calculate();</script>
+
+</html>

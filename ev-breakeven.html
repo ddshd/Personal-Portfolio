@@ -6,7 +6,8 @@
     <meta property="og:title" content="EV Cost breakdown">
     <meta property="og:type" content="article" />
 
-    <meta property="og:description" content="Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.">
+    <meta property="og:description"
+        content="Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.">
     <meta property="og:site_name" content="Dhrumil Shah">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -49,7 +50,8 @@
 <body>
     <div class="main">
         <h1>EV Cost Breakdown</h1>
-        <p>Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where owning an EV is more or less expensive for daily use.</p>
+        <p>Compare how your EV charging costs compare to a owning a gas vehicle. Calculate the breakeven points where
+            owning an EV is more or less expensive for daily use.</p>
         <br>
 
 
@@ -57,7 +59,7 @@
             <span>
                 <label for="ev_kwh" class="form-label">Battery capacity of your EV</label>
                 <div class="input-group mb-3">
-                    <input onkeyup="calclulate()" class="form-control" id="ev_kwh" type="number" step="1" value="89" />
+                    <input onkeyup="calclulate()" class="form-control" id="ev_kwh" type="number" step="1" value="82" />
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2">kwh</span>
                     </div>
@@ -67,7 +69,8 @@
             <span>
                 <label for="ev_range" class="form-label">Range of your EV</label>
                 <div class="input-group mb-3">
-                    <input onkeyup="calclulate()" class="form-control" id="ev_range" type="number" step="1" value="320" />
+                    <input onkeyup="calclulate()" class="form-control" id="ev_range" type="number" step="1"
+                        value="320" />
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2">miles</span>
                     </div>
@@ -77,8 +80,8 @@
             <span>
                 <label for="ev_charging_efficiency" class="form-label">Charging Efficiency</label>
                 <div class="input-group mb-3">
-                    <input onkeyup="calclulate()" class="form-control" id="ev_charging_efficiency" type="number" step="1"
-                        value="90" />
+                    <input onkeyup="calclulate()" class="form-control" id="ev_charging_efficiency" type="number"
+                        step="1" value="90" />
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2">%</span>
                     </div>
@@ -144,7 +147,7 @@
         <label class="form-label">Amount Spent on Charging</label>
         <h1 id="total_spent_ev" type="number"></h1>
 
-        <div id="gas_savings">
+        <div class="savingsTabs">
             <label class="form-label">Amount Spent on gas</label>
             <h1 id="total_spent_gas" type="number"></h1>
 
@@ -152,12 +155,34 @@
             <h1 id="total_savings" type="number"></h1>
         </div>
 
+        <br>
+
+        <div id="price_car_div">
+            <label for="price_car" class="form-label">Amount spend on your vehicle</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input onkeyup="calclulate()" class="form-control" id="price_car" type="number" step="1"
+                    value="55000" />
+            </div>
+        </div>
+
+        <div class="savingsTabs">
+            <label class="form-label">Miles to net-zero vehicle cost</label>
+            <p>(Amount of miles you'd need to drive for your gas savings to pay off your car)</p>
+            <h1 id="net_zero_cost" type="number"></h1>
+        </div>
+
         <button type="button" class="btn btn-info" onclick="calclulate()">
             Calclulate
         </button>
-        <button onclick="window.location.href = window.location.origin" type="button" class="btn btn-primary"><svg style="margin-bottom: 2.7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-          </svg> Back to portfolio website</button>
+        <button onclick="window.location.href = window.location.origin" type="button" class="btn btn-primary"><svg
+                style="margin-bottom: 2.7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+            </svg> Back to portfolio website</button>
     </div>
 </body>
 
@@ -188,23 +213,31 @@
         var price_gal = document.getElementById("price_gal");
         price_gal.removeAttribute("disabled");
 
-        var total_spent_ev = document.getElementById("total_spent_ev");
-
-        var total_spent_gas = document.getElementById("total_spent_gas");
-
-        var total_savings = document.getElementById("total_savings");
-
+        var price_car = document.getElementById("price_car");
 
         var option_info = document.getElementById("option_info");
 
         var selection = document.getElementById("whatToCalculate").value;
         const disabledDom = document.getElementById(selection);
 
-        document.getElementById("gas_savings").style.display = "none";
+        Array.from(document.getElementsByClassName("savingsTabs")).forEach(element => {
+            element.style.display = "none"
+        });
+        document.getElementById("price_car_div").style.display = "none";
+
 
         if (disabledDom) {
             disabledDom.setAttribute("disabled", true);
         }
+
+
+        var total_spent_ev = document.getElementById("total_spent_ev");
+
+        var total_spent_gas = document.getElementById("total_spent_gas");
+
+        var total_savings = document.getElementById("total_savings");
+
+        var net_zero_cost = document.getElementById("net_zero_cost");
 
         const elec_cost =
             (ev_kwh.value / (ev_charging_efficiency.value / 100)) * price_kwh.value;
@@ -219,6 +252,10 @@
 
         total_spent_gas.innerText = "$" + round(gas_cost);
         total_savings.innerText = "$" + round(savings_cost);
+
+
+        const net_zero_calculation = (price_car.value / savings_cost) * ev_range.value;
+        net_zero_cost.innerText = (net_zero_calculation > 0 ? round(net_zero_calculation) : "-") + " Miles";
 
         switch (selection) {
             case "price_gal":
@@ -243,13 +280,46 @@
                 option_info.innerText = "Calculate the efficiency of your gas vehicle to spend an equivalent amount on gas and charging your EV.";
                 break;
             case "savings":
-                document.getElementById("gas_savings").style.display = "block";
+                Array.from(document.getElementsByClassName("savingsTabs")).forEach(element => {
+                    element.style.display = "block"
+                });
+                document.getElementById("price_car_div").style.display = "block";
                 option_info.innerHTML = "Calculate the amount of savings or losses between charging your EV and fueling your gas vehicle."
                 break;
         }
     }
 
     calclulate();
+
+    function eia_api() {
+        fetch('https://api.eia.gov/v2/petroleum/pri/gnd/data/', { headers: { "X-Params": {
+                "frequency": "weekly",
+                "data": [
+                    "value"
+                ],
+                "facets": {
+                    "product": [
+                        "EPMR"
+                    ],
+                    "duoarea": [
+                        "NUS"
+                    ]
+                },
+                "start": null,
+                "end": null,
+                "sort": [
+                    {
+                        "column": "period",
+                        "direction": "desc"
+                    }
+                ],
+                "offset": 0,
+                "length": 5000,
+                "api-version": "2.0.2"
+            }}}).then(res => console.log(res)).then(err => console.log(err));
+
+    }
+    eia_api();
 </script>
 
 </html>
