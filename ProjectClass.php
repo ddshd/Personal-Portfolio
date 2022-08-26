@@ -231,6 +231,14 @@ $json = '{
         "live_url": "/ev-breakeven",
         "source_url": "https://github.com/ddshd/EVCostBreakdown",
         "image_name": "EVCostBreakdown.png"
+      },
+      {
+        "name": "SpreadYourLinks",
+        "title": "SpreadYourLinks",
+        "description": "A solution for many EV users: Accessing any web link on your vehicle\'s console without have to type it. Create your own secret token and use it to access your link on any device. One-click solutions to share links from your iOS and Android devices to your vehicle.",
+        "live_url": "https://spreadyourlinks.github.io/",
+        "source_url": "https://github.com/ddshd/spreadyourlink",
+        "image_name": "spreadyourlinks.png"
       }
     ]
   }';
