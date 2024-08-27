@@ -33,6 +33,7 @@ jobs:
         context: .
         push: true
         tags: ${{ steps.string.outputs.lowercase }}
+        platforms: linux/amd64,linux/arm64
 
     - name: Log out from GitHub Container Registry
       run: docker logout ghcr.io
