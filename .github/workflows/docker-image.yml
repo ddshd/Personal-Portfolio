@@ -1,6 +1,7 @@
 name: Build and Push Docker Image
 
 on:
+  workflow_dispatch: # Enables the manual "Run workflow" button
   push:
   pull_request:
 
